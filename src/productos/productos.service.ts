@@ -1,49 +1,39 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Producto } from './entities/producto.entity';
 import { CrearProductoDto } from './dto/crear_productos';
 import { ActualizarProductoDto } from './dto/actualizar_producto';
 
-export interface Producto {
-    id: number;
-    nombre: string;
-    descripcion: string;
-    categoria: string;
-    precio: number;
-    cantidad: number;
-}
-  
-
-
 @Injectable()
 export class ProductosService {
-  private productos: Producto[] = [];
-  private id = 0;
+  constructor(
+    @InjectRepository(Producto)
+    private productRepo: Repository<Producto>,
+  ) {}
 
   create(dto: CrearProductoDto) {
-    const product = { id: ++this.id, ...dto };
-    this.productos.push(product);
-    return product;
+    const product = this.productRepo.create(dto);
+    return this.productRepo.save(product);
   }
 
   findAll() {
-    return this.productos;
+    return this.productRepo.find();
   }
 
   findOne(id: number) {
-    const product = this.productos.find(p => p.id === id);
-    if (!product) throw new NotFoundException('Producto no encontrado');
-    return product;
+    return this.productRepo.findOneBy({ id });
   }
 
-  update(id: number, dto: ActualizarProductoDto) {
-    const product = this.findOne(id);
-    Object.assign(product, dto);
-    return product;
+  async update(id: number, dto: ActualizarProductoDto) {
+    await this.productRepo.update(id, dto);
+    return this.findOne(id);
   }
 
-  remove(id: number) {
-    const index = this.productos.findIndex(p => p.id === id);
-    if (index === -1) throw new NotFoundException('Producto no encontrado');
-    this.productos.splice(index, 1);
-    return { deleted: true };
+  async remove(id: number) {
+    
+    const producto = await this.productRepo.findOneBy({id});
+
+    return this.productRepo.remove(producto!);
   }
 }
