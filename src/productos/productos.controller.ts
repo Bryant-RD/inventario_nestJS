@@ -8,13 +8,17 @@ import {
   Body,
   Query,
   Param,
+  UseGuards,
 } from '@nestjs/common';
 
 import { ProductosService } from './productos.service';
 import { CrearProductoDto } from './dto/crear_productos';
 import { ActualizarProductoDto } from './dto/actualizar_producto';
-import { IsNull } from 'typeorm';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { RolesGuard } from 'src/auth/roles.guard';
+import { Roles } from 'src/usuarios/roles/roles.enum';
 
+@UseGuards(JwtAuthGuard, RolesGuard)
 @Controller('productos')
 export class ProductosController {
     

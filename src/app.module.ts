@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductosModule } from './productos/productos.module';
 import { Producto } from './productos/entities/producto.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
 
@@ -17,6 +18,7 @@ import { Producto } from './productos/entities/producto.entity';
     synchronize: true,
   }),
     ProductosModule,
+    AuthModule,
   ],
 
 })
