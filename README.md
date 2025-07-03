@@ -82,6 +82,3 @@ Este proyecto es académico y no cuenta con una licencia específica. Uso con fi
 - `Guia_de_Pruebas_Proyecto.docx`
 - `Mantenimiento_y_Actualizaciones_Proyecto.docx`
 
----
-
-⭐ Si tienes alguna duda o sugerencia, ¡puedes abrir un issue o contribuir! 🚀
