@@ -14,17 +14,20 @@ Desarrollar un sistema seguro, robusto y escalable que permita a la empresa llev
 
 ### ✅ Avance del proyecto final
 
-- **[Documento de Requisitos](./Documento_Requisitos.md)**
-- **[Guía de Pruebas](./Guia_de_Pruebas.md)**
-- **[Mantenimiento y Actualizaciones](./Mantenimiento_Actualizaciones.md)**
+- **[Documento de Requisitos](./Documento_Requisitos_Proyecto.docx)**
+- **[Guía de Pruebas](./Guia_de_Pruebas_Proyecto.docx)**
+- **[Mantenimiento y Actualizaciones](./Mantenimiento_y_Actualizaciones_Proyecto.docx)**
 
-## ⚙️ Funcionalidades
+---
 
-- Gestión completa de productos
-- Control de stock y alertas
-- Gestión de roles y seguridad
-- API integrable
-- Reportes y análisis
+## ⚙️ **Funcionalidades principales**
+
+- Gestión de productos (CRUD).
+- Control y actualización de stock.
+- Historial de movimientos y alertas de stock mínimo.
+- Gestión de roles (Administrador y Empleado) con permisos diferenciados.
+- Integración mediante API con posibles sistemas externos (POS, contabilidad).
+- Generación de reportes.
 
 ---
 
@@ -60,9 +63,6 @@ Desarrollar un sistema seguro, robusto y escalable que permita a la empresa llev
 Plan definido con ciclos semanales, mensuales, trimestrales y anuales para garantizar seguridad y estabilidad. Más detalles en el documento de **Mantenimiento y Actualizaciones**.
 
 ---
-
-⭐ Para más detalles, revisa cada documento en el repositorio.
-
 
 ## 💬 **Conclusión**
 
