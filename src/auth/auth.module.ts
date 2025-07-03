@@ -10,12 +10,12 @@ import { LocalStrategy } from './local.strategy';
 
 @Module({
   imports: [
+    TypeOrmModule.forFeature([Usuario]),
     PassportModule,
     JwtModule.register({
       secret: 'jwtSecretKey',
       signOptions: { expiresIn: '1h' },
     }),
-    TypeOrmModule.forFeature([Usuario]),
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy, LocalStrategy],

@@ -16,7 +16,8 @@ import { CrearProductoDto } from './dto/crear_productos';
 import { ActualizarProductoDto } from './dto/actualizar_producto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/roles.guard';
-import { Roles } from 'src/usuarios/roles/roles.enum';
+import { Role } from 'src/usuarios/roles/roles.enum';
+import { Roles } from 'src/usuarios/roles/roles.decorator';
 
 @UseGuards(JwtAuthGuard, RolesGuard)
 @Controller('productos')
@@ -25,12 +26,12 @@ export class ProductosController {
     
 
     constructor( private productosService:ProductosService ) {}
-
+    @Roles(Role.ADMIN, Role.EMPLOYEE)
     @Get('/')
     async getAllProducts() {
         return await this.productosService.findAll();
     }
-
+    @Roles(Role.ADMIN, Role.EMPLOYEE)
     @Get(':id')
     async findOne(@Param('id') id: number) {
       let producto = await this.productosService.findOne(id);
@@ -40,17 +41,17 @@ export class ProductosController {
       // }
       return await this.productosService.findOne(id);
     }
-
+    @Roles(Role.ADMIN, Role.EMPLOYEE)
     @Post('/')
     async create(@Body() nuevoProducto: CrearProductoDto) {
       return await this.productosService.create(nuevoProducto);
     }
-
+    @Roles(Role.ADMIN, Role.EMPLOYEE)
     @Delete(':id')
     async delete(@Param('id') id: number) {
       return await this.productosService.remove(id);
     }
-
+    @Roles(Role.ADMIN, Role.EMPLOYEE)
     @Patch(':id')
     async update(@Param('id') id: number, @Body() dto: ActualizarProductoDto) {
     return await this.productosService.update(id, dto);
