@@ -1,98 +1,87 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 📦 Sistema de Gestión de Inventarios
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Proyecto final de desarrollo de un sistema de gestión de inventarios para una pequeña empresa, implementado con NestJS y PostgreSQL. Este sistema cubre todas las etapas del ciclo de vida del aseguramiento de la calidad del software (QAS), incluyendo gestión de productos, control de stock, control de accesos y roles, integración con APIs y generación de reportes.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 🚀 **Objetivo**
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Desarrollar un sistema seguro, robusto y escalable que permita a la empresa llevar un control preciso de sus inventarios, asegurando la trazabilidad y calidad de los procesos.
 
-## Project setup
+---
 
-```bash
-$ npm install
-```
+## 📄 **Documentación principal**
 
-## Compile and run the project
+### ✅ Avance del proyecto final
 
-```bash
-# development
-$ npm run start
+- **[Documento de Requisitos](./Documento_Requisitos_Proyecto.docx)**
+- **[Guía de Pruebas](./Guia_de_Pruebas_Proyecto.docx)**
+- **[Mantenimiento y Actualizaciones](./Mantenimiento_y_Actualizaciones_Proyecto.docx)**
 
-# watch mode
-$ npm run start:dev
+---
 
-# production mode
-$ npm run start:prod
-```
+## ⚙️ **Funcionalidades principales**
 
-## Run tests
+- Gestión de productos (CRUD).
+- Control y actualización de stock.
+- Historial de movimientos y alertas de stock mínimo.
+- Gestión de roles (Administrador y Empleado) con permisos diferenciados.
+- Integración mediante API con posibles sistemas externos (POS, contabilidad).
+- Generación de reportes.
 
-```bash
-# unit tests
-$ npm run test
+---
 
-# e2e tests
-$ npm run test:e2e
+## 🔒 **Seguridad**
 
-# test coverage
-$ npm run test:cov
-```
+- Autenticación con JWT.
+- Control de acceso por roles.
+- Validaciones y protección contra inyecciones.
 
-## Deployment
+---
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## 🧪 **Pruebas**
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+- **Pruebas unitarias** con Jest.
+- **Pruebas de integración**.
+- **Pruebas de aceptación** usando Cucumber.
+- **Pruebas de roles y seguridad**.
+- **Pruebas manuales** (opcional para interfaz visual).
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+---
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## 📈 **Indicadores de calidad**
 
-## Resources
+- Cobertura de pruebas superior al 80%.
+- Densidad de defectos menor a 1.5 por KLOC.
+- Tiempo de respuesta inferior a 2 segundos en el 95% de las operaciones.
+- Mantenimiento regular documentado.
 
-Check out a few resources that may come in handy when working with NestJS:
+---
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## 🔄 **Mantenimiento**
 
-## Support
+Plan definido con ciclos semanales, mensuales, trimestrales y anuales para garantizar seguridad y estabilidad. Más detalles en el documento de **Mantenimiento y Actualizaciones**.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+## 💬 **Conclusión**
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+El sistema de gestión de inventarios cumple con los objetivos de calidad, seguridad y usabilidad planteados. Está diseñado para ser mantenido y escalado en el futuro, integrando mejoras conforme a las necesidades del negocio.
 
-## License
+---
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 📝 **Licencia**
+
+Este proyecto es académico y no cuenta con una licencia específica. Uso con fines educativos.
+
+---
+
+### 📥 **Documentos disponibles en el repositorio**
+
+- `Documento_Requisitos_Proyecto.docx`
+- `Guia_de_Pruebas_Proyecto.docx`
+- `Mantenimiento_y_Actualizaciones_Proyecto.docx`
+
+---
+
+⭐ Si tienes alguna duda o sugerencia, ¡puedes abrir un issue o contribuir! 🚀
