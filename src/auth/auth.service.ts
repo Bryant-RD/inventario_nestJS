@@ -6,6 +6,7 @@ import { Repository } from 'typeorm';
 import { Usuario } from 'src/usuarios/entities/usuario.entity';
 import { Role } from 'src/usuarios/roles/roles.enum';
 
+
 @Injectable()
 export class AuthService {
   constructor(

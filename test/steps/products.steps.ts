@@ -4,7 +4,6 @@ import axios = require('axios');
 
 let token: string;
 let response: any;
-let errorResponse: any;
 
 Given('el administrador está autenticado', async function () {
   const loginResponse = await axios.post('http://localhost:3000/auth/login', {
