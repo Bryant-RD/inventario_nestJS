@@ -6,7 +6,7 @@ import { ProductosModule } from './productos/productos.module';
 import { Producto } from './productos/entities/producto.entity';
 import { AuthModule } from './auth/auth.module';
 import { Usuario } from './usuarios/entities/usuario.entity';
-import { SuplidorModule } from './suplidor/suplidor.module';
+import { SuplidoresModule } from './suplidores/suplidores.module';
 
 @Module({
 
@@ -23,7 +23,7 @@ import { SuplidorModule } from './suplidor/suplidor.module';
   }),
     ProductosModule,
     AuthModule,
-    SuplidorModule,
+    SuplidoresModule,
   ],
   // controllers: [AppController],
   // providers: [AppService],
