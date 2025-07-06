@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProductosController } from './productos.controller';
 import { ProductosService } from './productos.service';
-import { CrearProductoDto } from './dto/crear_productos';
+import { CrearProductoDto } from './dtos/crear_productos';
 // import { ActualizarProductoDto } from './dto/actualizar_producto';
 
 describe('ProductosController', () => {

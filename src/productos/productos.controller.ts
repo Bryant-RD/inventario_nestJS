@@ -12,8 +12,8 @@ import {
 } from '@nestjs/common';
 
 import { ProductosService } from './productos.service';
-import { CrearProductoDto } from './dto/crear_productos';
-import { ActualizarProductoDto } from './dto/actualizar_producto';
+import { CrearProductoDto } from './dtos/crear_productos';
+import { ActualizarProductoDto } from './dtos/actualizar_producto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { Role } from 'src/usuarios/roles/roles.enum';

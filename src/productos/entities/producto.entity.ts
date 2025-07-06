@@ -1,9 +1,12 @@
+import { Suplidor } from 'src/suplidores/entities/suplidor.entity';
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
 
 @Entity({ name: 'productos' }) // Es una buena práctica nombrar la tabla explícitamente
@@ -29,8 +32,12 @@ export class Producto {
   @Column()
   cantidadMinima: number; // Corresponde a 'minStock'
 
-  @Column() // Suponiendo que un proveedor es opcional
+  @Column({ nullable: true }) // Suponiendo que un proveedor es opcional
   proveedorId: number; // Corresponde a 'supplierId'
+
+  @ManyToOne(() => Suplidor, (suplidor) => suplidor.productos)
+  @JoinColumn({ name: 'proveedorId' })
+  proveedor: Suplidor;
 
   @CreateDateColumn({ type: 'timestamp with time zone' })
   fechaCreacion: Date; // Corresponde a 'createdAt'
