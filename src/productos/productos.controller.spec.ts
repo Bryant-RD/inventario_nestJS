@@ -67,10 +67,16 @@ describe('ProductosController', () => {
     expect(service.remove).toHaveBeenCalledWith(1);
   });
 
-  // it('debe actualizar un producto', async () => {
-  //   const dto = { nombre: 'Actualizado' };
-  //   const result = await controller.update(1, dto);
-  //   expect(result).toEqual({ id: 1, ...dto });
-  //   expect(service.update).toHaveBeenCalledWith(1, dto);
-  // });
+  it('debe actualizar un producto', async () => {
+    const dto = {
+      nombre: 'Actualizado',
+      descripcion: 'desc actualizada',
+      categoria: 'cat actualizada',
+      precio: 30,
+      cantidad: 10,
+    };
+    const result = await controller.update(1, dto);
+    expect(result).toEqual({ id: 1, ...dto });
+    expect(service.update).toHaveBeenCalledWith(1, dto);
+  });
 });

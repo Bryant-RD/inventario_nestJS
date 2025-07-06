@@ -26,19 +26,17 @@ export class ProductosController {
     
 
     constructor( private productosService:ProductosService ) {}
-    @Roles(Role.ADMIN, Role.EMPLOYEE)
+    @Roles(Role.ADMIN, Role.EMPLOYEE, Role.CLIENT)
     @Get('/')
     async getAllProducts() {
         return await this.productosService.findAll();
     }
-    @Roles(Role.ADMIN, Role.EMPLOYEE)
+    @Roles(Role.ADMIN, Role.EMPLOYEE, Role.CLIENT)
     @Get(':id')
     async findOne(@Param('id') id: number) {
       let producto = await this.productosService.findOne(id);
       console.log(producto)
-      // if (producto == null) {
-      //   return 
-      // }
+
       return await this.productosService.findOne(id);
     }
     @Roles(Role.ADMIN, Role.EMPLOYEE)
