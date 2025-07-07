@@ -7,6 +7,7 @@ import { Producto } from './productos/entities/producto.entity';
 import { AuthModule } from './auth/auth.module';
 import { Usuario } from './usuarios/entities/usuario.entity';
 import { SuplidoresModule } from './suplidores/suplidores.module';
+import { Suplidor } from './suplidores/entities/suplidor.entity';
 
 @Module({
 
@@ -18,7 +19,7 @@ import { SuplidoresModule } from './suplidores/suplidores.module';
     username: 'bryant',
     password: '123456',
     database: 'inventario',
-    entities: [Producto, Usuario], 
+    entities: [Producto, Usuario, Suplidor], 
     synchronize: true,
   }),
     ProductosModule,

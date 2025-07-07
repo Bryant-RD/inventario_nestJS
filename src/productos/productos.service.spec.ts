@@ -42,7 +42,7 @@ describe('ProductosService', () => {
 
   describe('create', () => {
     it('should create and save a new product', async () => {
-      const dto: CrearProductoDto = { nombre: 'Nuevo Producto', categoria: 'A', cantidad: 10, descripcion: 'Desc', precio: 100 };
+      const dto: CrearProductoDto = { nombre: 'Nuevo Producto', categoria: 'A', cantidad: 10, descripcion: 'Desc', precio: 100, cantidadMinima: 5, proveedorId: 1 };
       const producto = { id: 1, ...dto };
 
       mockProductRepository.create.mockReturnValue(dto);

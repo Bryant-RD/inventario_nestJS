@@ -55,7 +55,14 @@ describe('AuthController', () => {
 
   describe('login', () => {
     it('should call AuthService.login and return the access token', async () => {
-      const user : Usuario = { id: 1, username: 'test', role: Role.EMPLOYEE, password: 'pass' };
+      const user : Usuario = {
+        id: 1, username: 'test', role: Role.EMPLOYEE, password: 'pass',
+        nombre: '',
+        apellido: '',
+        correo: '',
+        fechaCreacion: new Date(),
+       
+      };
       const req: any = { user };
       const token = { access_token: 'jwt-token' };
       mockAuthService.login.mockResolvedValue(token);
