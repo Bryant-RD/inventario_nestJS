@@ -1,0 +1,98 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    # Define un contenedor de servicio de PostgreSQL para que corra junto al job
+    services:
+      postgres:
+        image: postgres:13-alpine
+        # Healthcheck para esperar a que postgres esté listo
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: testuser
+          POSTGRES_PASSWORD: testpassword
+          POSTGRES_DB: testdb
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Linter
+        run: npm run lint
+
+      - name: Build application
+        run: npm run build --if-present
+
+      - name: Run Unit, E2E & Cucumber Tests
+        # Establece las variables de entorno para la conexión a la base de datos
+        # El host es 'localhost' porque mapeamos el puerto del servicio al host
+        env:
+          PGHOST: localhost
+          PGPORT: 5432
+          PGUSER: testuser
+          PGPASSWORD: testpassword
+          PGDATABASE: testdb
+          JWT_SECRET: ${{ secrets.JWT_SECRET_TEST }}
+        run: |
+          npm run test
+          npm run test:e2e
+          npm run test:cucumber
+
+  deploy:
+    # Este job se ejecuta solo si 'build-and-test' fue exitoso
+    # y el evento es un push a la rama 'main'.
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: tu-usuario-docker/inventario-nestjs:latest # <-- ¡Cambia esto!
+
+      - name: Deploy to production environment
+        run: |
+          echo "Este es un placeholder para tu script de despliegue."
+          echo "Aquí deberías:"
+          echo "1. Conectarte a tu servidor (ej. vía SSH)."
+          echo "2. Descargar la nueva imagen de Docker: docker pull tu-usuario-docker/inventario-nestjs:latest"
+          echo "3. Ejecutar las migraciones de la base de datos (si las tienes)."
+          echo "4. Reiniciar la aplicación con la nueva imagen (ej. con docker-compose)."
+          echo "Despliegue simulado exitoso."
+

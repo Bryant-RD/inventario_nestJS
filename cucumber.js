@@ -4,7 +4,6 @@ module.exports = {
     require: ['features/steps_definitions/**/*.ts', 'features/support/**/*.ts'],
     paths: ['features/**/*.feature'],
     format: ['progress-bar', 'json:reports/cucumber-report.json'],
-    publishQuiet: true,
     worldParameters: {},
   },
 };
