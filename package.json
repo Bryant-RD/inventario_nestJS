@@ -16,9 +16,7 @@
     "test": "jest --config jest.config.ts",
     "test:watch": "jest --watch --config jest.config.ts",
     "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",    
-    "test:e2e": "jest --config ./test/jest-e2e.json",
-    "test:cucumber": "cucumber-js"
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
     "@cucumber/cucumber": "^11.3.0",

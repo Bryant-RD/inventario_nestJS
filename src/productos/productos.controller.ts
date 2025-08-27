@@ -34,10 +34,7 @@ export class ProductosController {
     @Roles(Role.ADMIN, Role.EMPLOYEE, Role.CLIENT)
     @Get(':id')
     async findOne(@Param('id') id: number) {
-      let producto = await this.productosService.findOne(id);
-      console.log(producto)
-
-      return await this.productosService.findOne(id);
+      return this.productosService.findOne(id);
     }
     @Roles(Role.ADMIN, Role.EMPLOYEE)
     @Post('/')
