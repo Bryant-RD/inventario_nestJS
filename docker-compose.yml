@@ -1,0 +1,46 @@
+services:
+  # Servicio para la aplicación Backend (NestJS)
+  backend:
+    build: . # Busca un Dockerfile en el directorio actual y lo construye
+    container_name: inventory-backend
+    ports:
+      - "4000:4000" # Mapea el puerto de la app al host
+    environment:
+      # Configuración de la base de datos para conectar al servicio 'postgres'
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USERNAME=admin
+      - DB_PASSWORD=admin
+      - DB_DATABASE=inventory
+      - PORT=4000
+      # Endpoint para que el SDK de OpenTelemetry envíe las trazas a Jaeger
+      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://jaeger:4318/v1/traces
+    depends_on:
+      - postgres # Espera a que el servicio de postgres esté listo
+
+  # Servicio para Jaeger, que recolectará y mostrará las trazas
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: jaeger
+    ports:
+      - "16686:16686" # Interfaz de usuario de Jaeger
+      - "4318:4318"   # Puerto para recibir trazas OTLP/HTTP
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+
+  # Servicio para la base de datos PostgreSQL
+  postgres:
+    image: postgres:13
+    container_name: inventory-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=inventory
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+# Definir un volumen nombrado para persistir los datos de la DB de forma segura
+volumes:
+  pgdata:

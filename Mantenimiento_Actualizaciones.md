@@ -26,13 +26,36 @@ Mejorar la experiencia de usuario y rendimiento conforme avance la tecnología.
 
 # Ciclo de actualizaciones
 
-# Herramientas recomendadas
 
-- Control de versiones: Git para gestionar cambios y versiones.
-- Integración continua: Jenkins, GitHub Actions o GitLab CI para ejecutar pruebas automáticas y despliegues.
-- Monitoreo: Herramientas como Prometheus, Grafana o servicios en la nube para vigilar el estado y rendimiento.
-- Gestión de incidencias: Jira, Trello o similares para seguimiento de errores y tareas.
+# 4. Gestión de Migraciones de Base de Datos
+
+Para gestionar los cambios en el esquema de la base de datos de manera segura y automatizada, se utilizarán herramientas como **Flyway** o **Liquibase**.
+
+- **Proceso:**
+  - Cada cambio en la base de datos (crear tabla, añadir columna, etc.) se escribirá en un script SQL versionado (ej. `V1__Crear_tabla_productos.sql`).
+  - Estos scripts se almacenarán en el control de versiones (Git) junto con el código de la aplicación.
+  - Durante el despliegue, la herramienta de migración se ejecutará automáticamente, comparará la versión de la base de datos con los scripts disponibles y aplicará solo los cambios pendientes.
+- **Beneficios:**
+  - **Consistencia:** Asegura que todos los entornos (desarrollo, pruebas, producción) tengan el mismo esquema de base de datos.
+  - **Trazabilidad:** Permite saber quién, cuándo y por qué se realizó un cambio en la base de datos.
+  - **Reversibilidad:** Facilita la reversión a una versión anterior del esquema si es necesario (rollback).
+
+# 5. Estrategia de Monitoreo y Observabilidad
+
+Para garantizar la salud y el rendimiento del sistema en producción, se implementará una estrategia de observabilidad basada en los tres pilares fundamentales, utilizando **OpenTelemetry** para la instrumentación.
+
+- **Métricas (Metrics):**
+  - **Herramientas:** Prometheus para la recolección y Grafana para la visualización.
+  - **Métricas Clave:** Tasa de errores (HTTP 5xx), latencia de las peticiones, uso de CPU y memoria del servidor, número de usuarios activos.
+
+- **Trazas (Traces):**
+  - **Herramientas:** OpenTelemetry para generar las trazas y un backend compatible como Jaeger o Zipkin para visualizarlas.
+  - **Objetivo:** Seguir el flujo de una petición a través de los diferentes servicios (ej. desde el controlador hasta la base de datos) para identificar cuellos de botella y puntos de fallo.
+
+- **Logs:**
+  - **Herramientas:** Centralización de logs mediante una pila como ELK (Elasticsearch, Logstash, Kibana) o Loki con Grafana.
+  - **Objetivo:** Agregar los logs de la aplicación en un solo lugar para facilitar la búsqueda, el análisis de errores y la creación de alertas basadas en eventos específicos.
+
 # Conclusión
 
 El mantenimiento y actualización constantes aseguran que el sistema se mantenga confiable, seguro y alineado con las necesidades del negocio, garantizando la satisfacción de los usuarios y la continuidad operativa.
-
