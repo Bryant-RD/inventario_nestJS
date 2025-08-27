@@ -34,7 +34,7 @@ async register(usuarioDTO : CrearUsuarioDto) {
     username: usuarioDTO.username,
     password: hashed,
     empresa: usuarioDTO.company,
-
+    role: usuarioDTO.role,
   });
   return this.userRepo.save(user);
 }
@@ -58,10 +58,10 @@ async register(usuarioDTO : CrearUsuarioDto) {
     return result;
   }
 
-  async login(user: any) {
-    const payload = { email: user.correo, sub: user.id, role: user.role };
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
-  }
+async login(user: any) {
+  const payload = { sub: user.id, email: user.email, role: user.role };
+  return {
+    access_token: this.jwtService.sign(payload),
+  };
+}
 }

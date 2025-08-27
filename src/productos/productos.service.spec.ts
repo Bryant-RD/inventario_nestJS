@@ -6,6 +6,8 @@ import { Repository } from 'typeorm';
 import { Producto } from './entities/producto.entity';
 import { CrearProductoDto } from './dtos/crear_productos';
 import { ActualizarProductoDto } from './dtos/actualizar_producto';
+// 1. Importa la entidad REAL `HistorialMovimiento`. La ruta puede necesitar ajuste.
+import { HistorialMovimiento } from 'src/historial/entities/historial.entity';
 
 describe('ProductosService', () => {
   let service: ProductosService;
@@ -20,6 +22,11 @@ describe('ProductosService', () => {
     remove: jest.fn(),
   };
 
+  const mockHistorialMovimientoRepository = {
+    create: jest.fn(),
+    save: jest.fn(),
+  };
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -27,6 +34,10 @@ describe('ProductosService', () => {
         {
           provide: getRepositoryToken(Producto),
           useValue: mockProductRepository,
+        },
+        {
+          provide: getRepositoryToken(HistorialMovimiento),
+          useValue: mockHistorialMovimientoRepository,
         },
       ],
     }).compile();
