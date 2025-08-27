@@ -1,12 +1,14 @@
 import { Suplidor } from 'src/suplidores/entities/suplidor.entity';
+import { HistorialMovimiento } from 'src/historial/entities/historial.entity';
 import {
-  Entity,
   Column,
-  PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn,
-  ManyToOne,
+  Entity,
   JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity({ name: 'productos' }) // Es una buena práctica nombrar la tabla explícitamente
@@ -44,4 +46,7 @@ export class Producto {
 
   @UpdateDateColumn({ type: 'timestamp with time zone' })
   fechaActualizacion: Date; // Corresponde a 'updatedAt'
+  
+   @OneToMany(() => HistorialMovimiento, (historial) => historial.producto)
+  historial: HistorialMovimiento[];
 }

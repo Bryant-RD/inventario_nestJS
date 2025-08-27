@@ -63,3 +63,16 @@ Then('el cuerpo de la respuesta debe ser un array', function (this: CustomWorld)
 Then('el cuerpo de la respuesta debe contener una propiedad "{string}" con el valor "{string}"', function (this: CustomWorld, prop: string, value: string) {
     expect(this.response.body).to.have.property(prop, value);
 });
+
+
+// ... tus otros steps
+
+Then('el array de la respuesta debe tener {int} elemento(s)', function (count: number) {
+  expect(this.response.body).to.be.an('array').with.lengthOf(count);
+});
+
+Then('el primer elemento del array de la respuesta debe tener la propiedad {string} con el valor {string}', function (prop: string, value: string) {
+  expect(this.response.body[0]).to.have.property(prop, value);
+  // Opcionalmente, puedes verificar que no esté el otro producto
+  expect(this.response.body.some(p => p.nombre === 'Laptop Modelo X')).to.be.false;
+});

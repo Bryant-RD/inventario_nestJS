@@ -1,0 +1,479 @@
+[
+  {
+    "description": "  Como usuario del sistema, quiero gestionar productos para mantener el inventario actualizado,\n  respetando las reglas de acceso de mi rol.",
+    "elements": [
+      {
+        "description": "",
+        "id": "gestión-de-productos;un-empleado-puede-crear-un-producto-exitosamente",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Un empleado puede crear un producto exitosamente",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 222699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "que la aplicación está en funcionamiento",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 329600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "un usuario \"EMPLOYEE\" con nombre \"cucumber_employee\" y contraseña \"password\" existe",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "un usuario \"CLIENT\" con nombre \"cucumber_client\" y contraseña \"password\" existe",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "estoy autenticado como el usuario \"cucumber_employee\" con contraseña \"password\"",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "content": "{\n  \"nombre\": \"Producto Cucumber\",\n  \"descripcion\": \"Creado desde una prueba de aceptación\",\n  \"categoria\": \"Cucumber\",\n  \"precio\": 150.50,\n  \"cantidad\": 25\n}",
+                "line": 13
+              }
+            ],
+            "keyword": "When ",
+            "line": 12,
+            "name": "envío una petición POST a \"/productos\" con el siguiente cuerpo:",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "la respuesta debe tener el código de estado 201",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:52"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "el cuerpo de la respuesta debe contener una propiedad \"nombre\" con el valor \"Producto Cucumber\"",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "gestión-de-productos;un-cliente-no-tiene-permisos-para-crear-un-producto",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Un cliente no tiene permisos para crear un producto",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 73300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "que la aplicación está en funcionamiento",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 98599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "un usuario \"EMPLOYEE\" con nombre \"cucumber_employee\" y contraseña \"password\" existe",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "un usuario \"CLIENT\" con nombre \"cucumber_client\" y contraseña \"password\" existe",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 26,
+            "name": "estoy autenticado como el usuario \"cucumber_client\" con contraseña \"password\"",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "content": "{ \"nombre\": \"Producto Ilegal\" }",
+                "line": 28
+              }
+            ],
+            "keyword": "When ",
+            "line": 27,
+            "name": "envío una petición POST a \"/productos\" con el siguiente cuerpo:",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 31,
+            "name": "la respuesta debe tener el código de estado 403",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:52"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "gestión-de-productos;cualquier-usuario-autenticado-puede-ver-la-lista-de-productos",
+        "keyword": "Scenario",
+        "line": 33,
+        "name": "Cualquier usuario autenticado puede ver la lista de productos",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 141999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "que la aplicación está en funcionamiento",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "un usuario \"EMPLOYEE\" con nombre \"cucumber_employee\" y contraseña \"password\" existe",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "un usuario \"CLIENT\" con nombre \"cucumber_client\" y contraseña \"password\" existe",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 34,
+            "name": "estoy autenticado como el usuario \"cucumber_client\" con contraseña \"password\"",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 35,
+            "name": "envío una petición GET a \"/productos/\"",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 36,
+            "name": "la respuesta debe tener el código de estado 200",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:52"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 37,
+            "name": "el cuerpo de la respuesta debe ser un array",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:59"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "gestión-de-productos",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Gestión de Productos",
+    "tags": [],
+    "uri": "features\\products.feature"
+  },
+  {
+    "description": "  Como usuario autorizado (Admin/Empleado),\n  quiero poder ver los productos que tienen un stock bajo\n  para poder tomar acciones de reabastecimiento.",
+    "elements": [
+      {
+        "description": "",
+        "id": "alertas-de-stock;obtener-productos-con-stock-por-debajo-del-mínimo",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Obtener productos con stock por debajo del mínimo",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 156700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "que la aplicación está en funcionamiento",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 108999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "un usuario \"ADMIN\" con nombre \"adminstock\" y contraseña \"password123\" existe",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "estoy autenticado como el usuario \"adminstock\" con contraseña \"password123\"",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "content": "{\n  \"nombre\": \"Laptop Modelo X\",\n  \"descripcion\": \"Laptop con stock normal\",\n  \"categoria\": \"Electrónica\",\n  \"precio\": 1200,\n  \"cantidad\": 15,\n  \"cantidadMinima\": 10,\n  \"proveedorId\": 1\n}",
+                "line": 13
+              }
+            ],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "envío una petición \"POST\" a \"/productos\" con el siguiente cuerpo:",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "la respuesta debe tener el código de estado 201",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:52"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "content": "{\n  \"nombre\": \"Mouse Inalámbrico\",\n  \"descripcion\": \"Mouse con stock bajo\",\n  \"categoria\": \"Accesorios\",\n  \"precio\": 25,\n  \"cantidad\": 5,\n  \"cantidadMinima\": 5,\n  \"proveedorId\": 1\n}",
+                "line": 26
+              }
+            ],
+            "keyword": "And ",
+            "line": 25,
+            "name": "envío una petición \"POST\" a \"/productos\" con el siguiente cuerpo:",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 37,
+            "name": "la respuesta debe tener el código de estado 201",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:52"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 39,
+            "name": "envío una petición \"GET\" a \"/productos/stock/alerts\"",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 41,
+            "name": "la respuesta debe tener el código de estado 200",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:52"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 42,
+            "name": "el cuerpo de la respuesta debe ser un array",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:59"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 43,
+            "name": "el array de la respuesta debe tener 1 elemento(s)",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 44,
+            "name": "el primer elemento del array de la respuesta debe tener la propiedad \"nombre\" con el valor \"Mouse Inalámbrico\"",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:74"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "alertas-de-stock",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Alertas de Stock",
+    "tags": [],
+    "uri": "features\\stock_alerts.feature"
+  }
+]

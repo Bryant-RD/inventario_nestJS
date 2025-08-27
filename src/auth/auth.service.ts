@@ -48,6 +48,16 @@ async register(usuarioDTO : CrearUsuarioDto) {
     throw new UnauthorizedException('Credenciales inválidas');
   }
 
+  async getProfile(userId: number) {
+    const user = await this.userRepo.findOne({ where: { id: userId } });
+    if (!user) {
+      // Este caso no debería ocurrir si el token es válido, pero es una buena práctica manejarlo.
+      throw new UnauthorizedException('Usuario no encontrado');
+    }
+    const { password, ...result } = user;
+    return result;
+  }
+
   async login(user: any) {
     const payload = { email: user.correo, sub: user.id, role: user.role };
     return {

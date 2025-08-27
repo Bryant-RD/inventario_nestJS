@@ -1,35 +1,50 @@
 import {
+  AfterAll,
+  BeforeAll,
+  Before,
+  IWorldOptions,
   setWorldConstructor,
   World,
-  BeforeAll,
-  AfterAll,
 } from '@cucumber/cucumber';
 import { INestApplication } from '@nestjs/common';
-import { Test, TestingModule } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
+import * as supertest from 'supertest';
 import { AppModule } from '../../src/app.module';
-import request, { Response } from 'supertest';
 
 export class CustomWorld extends World {
-  app: INestApplication;
-  request: ReturnType<typeof request>;
-  response: Response;
-  token: string;
+  public app!: INestApplication;
+  public request!: supertest.SuperTest<supertest.Test>;
+  public response!: supertest.Response;
+  public token!: string;
+
+  constructor(options: IWorldOptions) {
+    super(options);
+  }
 }
 
 setWorldConstructor(CustomWorld);
 
 let app: INestApplication;
+let request: supertest.SuperTest<supertest.Test>;
 
-BeforeAll(async function (this: CustomWorld) {
-  const moduleFixture: TestingModule = await Test.createTestingModule({
+BeforeAll({ timeout: 30 * 1000 }, async function () {
+  const moduleFixture = await Test.createTestingModule({
     imports: [AppModule],
   }).compile();
 
   app = moduleFixture.createNestApplication();
   await app.init();
-  this.request = request(app.getHttpServer());
+  request = (supertest as any)(app.getHttpServer()) as supertest.SuperTest<supertest.Test>;
 });
 
-AfterAll(async () => {
-  await app.close();
+Before(async function (this: CustomWorld) {
+  // Asigna la aplicación y el agente de request a la instancia del mundo de este escenario
+  this.app = app;
+  this.request = request;
+});
+
+AfterAll(async function () {
+  if (app) {
+    await app.close();
+  }
 });
