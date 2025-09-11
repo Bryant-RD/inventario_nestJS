@@ -16,9 +16,14 @@ export class AuthService {
   ) {}
 
 async register(usuarioDTO : CrearUsuarioDto) {
-  const existing = await this.userRepo.findOne({ where: { username: usuarioDTO.username, correo: usuarioDTO.email } });
+  const existing = await this.userRepo.findOne({
+    where: [
+      { username: usuarioDTO.username },
+      { correo: usuarioDTO.email },
+    ],
+  });
   if (existing) {
-    throw new ConflictException('El nombre de usuario ya existe');
+    throw new ConflictException('El nombre de usuario o el correo electrónico ya existe');
   }
   const hashed = await bcrypt.hash(usuarioDTO.password, 10);
 

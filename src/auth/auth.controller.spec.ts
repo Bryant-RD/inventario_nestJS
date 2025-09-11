@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { Usuario } from 'src/usuarios/entities/usuario.entity';
+import { CrearUsuarioDto } from 'src/usuarios/dtos/crear_usuario.dto';
 import { Role } from 'src/usuarios/roles/roles.enum';
 
 describe('AuthController', () => {
@@ -34,32 +35,31 @@ describe('AuthController', () => {
   });
 
   describe('register', () => {
-    it.each([
-      {
-        description: 'an EMPLOYEE user',
-        dto: { username: 'test', password: 'pass' },
-        expectedResult: { id: 1, username: 'test', role: Role.EMPLOYEE, password: 'hashedPassword' },
-      },
-      {
-        description: 'a CLIENT user',
-        dto: { username: 'cliente', password: '123456' },
-        expectedResult: { id: 2, username: 'cliente', role: Role.CLIENT, password: 'hashedPassword' },
-      },
-    ])('should register $description', async ({ dto, expectedResult }) => {
+    it('should register a new user', async () => {
+      const dto: CrearUsuarioDto = {
+        firstName: 'Test',
+        lastName: 'User',
+        email: 'test@example.com',
+        username: 'testuser',
+        password: 'password123',
+        company: 'Test Inc.',
+      };
+      const expectedResult = { id: 1, ...dto, password: 'hashedPassword' };
+
       mockAuthService.register.mockResolvedValue(expectedResult);
 
       expect(await controller.register(dto)).toEqual(expectedResult);
-      expect(mockAuthService.register).toHaveBeenCalledWith(dto.username, dto.password);
+      expect(mockAuthService.register).toHaveBeenCalledWith(dto);
     });
   });
 
   describe('login', () => {
     it('should call AuthService.login and return the access token', async () => {
       const user : Usuario = {
-        id: 1, username: 'test', role: Role.EMPLOYEE, password: 'pass',
+        id: 1, username: 'test', role: Role.EMPLOYEE, password: 'pass', // El password no se usa aquí, pero es parte de la entidad
         nombre: '',
         apellido: '',
-        correo: '',
+        correo: 'test@example.com',
         fechaCreacion: new Date(),
        
       };
