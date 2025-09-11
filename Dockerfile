@@ -28,4 +28,5 @@ COPY --from=builder /usr/src/app/package*.json ./
 EXPOSE 4000
 
 # El comando para iniciar la aplicación
-CMD [ "node", "dist/main" ]
+CMD [ "node", "dist/main.js" ]
+

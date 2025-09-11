@@ -14,8 +14,8 @@ Given(
       const userData = { 
         username, 
         password: pass, 
-        firstName: 'NombreTest',    // ← Estos nombres deben coincidir con el DTO
-        lastName: 'ApellidoTest',   // ← no con la base de datos
+        firstName: 'NombreTest',    // Correcto: el DTO espera `firstName`
+        lastName: 'ApellidoTest',   // Correcto: el DTO espera `lastName`
         email: `${username}@test.com`,
         role: Role[role.toUpperCase()],
         company: 'Empresa Test'
@@ -37,7 +37,8 @@ Given(
 Given(
   'estoy autenticado como el usuario {string} con contraseña {string}',
   async function (this: CustomWorld, username: string, pass: string) {
-    const res = await this.request.post('/auth/login').send({ username, password: pass });
+    // Corregido: El login se hace con email, no con username.
+    const res = await this.request.post('/auth/login').send({ email: `${username}@test.com`, password: pass });
     expect(res.status).to.equal(201);
     this.token = res.body.access_token;
   },
