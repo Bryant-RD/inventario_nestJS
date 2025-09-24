@@ -27,11 +27,11 @@ import { MetricsModule } from './metrics/metrics.module';
     inject: [ConfigService],
     useFactory: (configService: ConfigService) => ({
       type: 'postgres',
-      host: configService.get<string>('DB_HOST', 'localhost'), // Usa 'localhost' por defecto
-      port: configService.get<number>('DB_PORT', 5432),
-      username: configService.get<string>('DB_USERNAME', 'admin'),
-      password: configService.get<string>('DB_PASSWORD', 'admin'),
-      database: configService.get<string>('DB_DATABASE', 'inventory'),
+      host: 'inventory-db',
+      port: 5432,
+      username: 'admin',
+      password: 'admin',
+      database: 'inventory',
       entities: [Producto, Usuario, Suplidor, HistorialMovimiento],
       synchronize: true, // Idealmente false en producción
     }),

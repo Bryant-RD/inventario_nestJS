@@ -16,7 +16,10 @@ services:
     depends_on:
       - postgres
       - postgres-exporter
-    command: ["sh", "-c", "until nc -z postgres 5432; do echo waiting for db; sleep 2; done; node dist/main.js"]
+    command: >
+      sh -c "until nc -z postgres 5432;
+      do echo waiting for db; sleep 2; done;
+      node dist/main.js"
 
   # PostgreSQL
   postgres:
