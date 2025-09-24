@@ -7,8 +7,6 @@ import { Producto } from './entities/producto.entity';
 import { HistorialMovimiento } from '../historial/entities/historial.entity'; // Importar la entidad
 import { CrearProductoDto } from './dtos/crear_productos';
 import { ActualizarProductoDto } from './dtos/actualizar_producto';
-// 1. Importa la entidad REAL `HistorialMovimiento`. La ruta puede necesitar ajuste.
-import { HistorialMovimiento } from 'src/historial/entities/historial.entity';
 
 describe('ProductosService', () => {
   let service: ProductosService;
