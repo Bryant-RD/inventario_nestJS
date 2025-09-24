@@ -4,6 +4,7 @@ import { NotFoundException } from '@nestjs/common';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Producto } from './entities/producto.entity';
+import { HistorialMovimiento } from '../historial/entities/historial.entity'; // Importar la entidad
 import { CrearProductoDto } from './dtos/crear_productos';
 import { ActualizarProductoDto } from './dtos/actualizar_producto';
 // 1. Importa la entidad REAL `HistorialMovimiento`. La ruta puede necesitar ajuste.
@@ -12,6 +13,7 @@ import { HistorialMovimiento } from 'src/historial/entities/historial.entity';
 describe('ProductosService', () => {
   let service: ProductosService;
   let repository: Repository<Producto>;
+  let historialRepository: Repository<HistorialMovimiento>; // Variable para el nuevo repo
 
   const mockProductRepository = {
     create: jest.fn(),
@@ -44,6 +46,7 @@ describe('ProductosService', () => {
 
     service = module.get<ProductosService>(ProductosService);
     repository = module.get<Repository<Producto>>(getRepositoryToken(Producto));
+    historialRepository = module.get<Repository<HistorialMovimiento>>(getRepositoryToken(HistorialMovimiento));
     jest.clearAllMocks();
   });
 
