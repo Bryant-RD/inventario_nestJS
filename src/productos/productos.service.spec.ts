@@ -4,12 +4,14 @@ import { NotFoundException } from '@nestjs/common';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Producto } from './entities/producto.entity';
+import { HistorialMovimiento } from '../historial/entities/historial.entity'; // Importar la entidad
 import { CrearProductoDto } from './dtos/crear_productos';
 import { ActualizarProductoDto } from './dtos/actualizar_producto';
 
 describe('ProductosService', () => {
   let service: ProductosService;
   let repository: Repository<Producto>;
+  let historialRepository: Repository<HistorialMovimiento>; // Variable para el nuevo repo
 
   const mockProductRepository = {
     create: jest.fn(),
@@ -20,6 +22,12 @@ describe('ProductosService', () => {
     remove: jest.fn(),
   };
 
+  // Mock para el repositorio de HistorialMovimiento
+  const mockHistorialRepository = {
+    create: jest.fn(),
+    save: jest.fn(),
+  };
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -28,11 +36,16 @@ describe('ProductosService', () => {
           provide: getRepositoryToken(Producto),
           useValue: mockProductRepository,
         },
+        { // <-- Añadir el mock del repositorio que faltaba
+          provide: getRepositoryToken(HistorialMovimiento),
+          useValue: mockHistorialRepository,
+        },
       ],
     }).compile();
 
     service = module.get<ProductosService>(ProductosService);
     repository = module.get<Repository<Producto>>(getRepositoryToken(Producto));
+    historialRepository = module.get<Repository<HistorialMovimiento>>(getRepositoryToken(HistorialMovimiento));
     jest.clearAllMocks();
   });
 

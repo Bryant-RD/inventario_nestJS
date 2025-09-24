@@ -1,34 +1,24 @@
 services:
-  # Servicio para la aplicación Backend (NestJS)
+  # Servicio Backend (NestJS)
   backend:
-    build: . # Busca un Dockerfile en el directorio actual y lo construye
+    build: .
+    image: inventory-backend:latest
     container_name: inventory-backend
     ports:
-      - "4000:4000" # Mapea el puerto de la app al host
+      - "4000:4000"
     environment:
-      # Configuración de la base de datos para conectar al servicio 'postgres'
       - DB_HOST=postgres
       - DB_PORT=5432
       - DB_USERNAME=admin
       - DB_PASSWORD=admin
       - DB_DATABASE=inventory
       - PORT=4000
-      # Endpoint para que el SDK de OpenTelemetry envíe las trazas a Jaeger
-      - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://jaeger:4318/v1/traces
     depends_on:
-      - postgres # Espera a que el servicio de postgres esté listo
+      - postgres
+      - postgres-exporter
+    command: ["sh", "-c", "until nc -z postgres 5432; do echo waiting for db; sleep 2; done; node dist/main.js"]
 
-  # Servicio para Jaeger, que recolectará y mostrará las trazas
-  jaeger:
-    image: jaegertracing/all-in-one:latest
-    container_name: jaeger
-    ports:
-      - "16686:16686" # Interfaz de usuario de Jaeger
-      - "4318:4318"   # Puerto para recibir trazas OTLP/HTTP
-    environment:
-      - COLLECTOR_OTLP_ENABLED=true
-
-  # Servicio para la base de datos PostgreSQL
+  # PostgreSQL
   postgres:
     image: postgres:13
     container_name: inventory-db
@@ -41,6 +31,48 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-# Definir un volumen nombrado para persistir los datos de la DB de forma segura
+  # Exporter de PostgreSQL
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:latest
+    container_name: postgres-exporter
+    environment:
+      - DATA_SOURCE_NAME=postgresql://admin:admin@postgres:5432/inventory?sslmode=disable
+    ports:
+      - "9187:9187"
+    depends_on:
+      - postgres
+
+  # Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+    depends_on:
+      - backend
+      - postgres-exporter
+
+  # Grafana
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+
 volumes:
   pgdata:
+  prometheus_data:
+  grafana_data:

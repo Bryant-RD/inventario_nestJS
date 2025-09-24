@@ -1,5 +1,10 @@
-import { Module } from '@nestjs/common';
+import { Module, MiddlewareConsumer, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+
+
+import { MetricsMiddleware } from './metrics/metrics.middleware';
+
 import { HistorialMovimiento } from './historial/entities/historial.entity';
 import { ProductosModule } from './productos/productos.module';
 import { Producto } from './productos/entities/producto.entity';
@@ -7,26 +12,40 @@ import { AuthModule } from './auth/auth.module';
 import { Usuario } from './usuarios/entities/usuario.entity';
 import { SuplidoresModule } from './suplidores/suplidores.module';
 import { Suplidor } from './suplidores/entities/suplidor.entity';
+import { MetricsModule } from './metrics/metrics.module';
+
+
 
 @Module({
 
   imports: [
-  TypeOrmModule.forRoot({
-    type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'bryant',
-    password: '123456',
-    database: 'inventario',
-    entities: [Producto, Usuario, Suplidor, HistorialMovimiento], 
-    synchronize: true,
+  ConfigModule.forRoot({
+      isGlobal: true, // para que todas las partes de la app puedan acceder a las variables de entorno
+    }),
+  TypeOrmModule.forRootAsync({
+    imports: [ConfigModule],
+    inject: [ConfigService],
+    useFactory: (configService: ConfigService) => ({
+      type: 'postgres',
+      host: configService.get<string>('DB_HOST', 'localhost'), // Usa 'localhost' por defecto
+      port: configService.get<number>('DB_PORT', 5432),
+      username: configService.get<string>('DB_USERNAME', 'admin'),
+      password: configService.get<string>('DB_PASSWORD', 'admin'),
+      database: configService.get<string>('DB_DATABASE', 'inventory'),
+      entities: [Producto, Usuario, Suplidor, HistorialMovimiento],
+      synchronize: true, // Idealmente false en producción
+    }),
   }),
     ProductosModule,
     AuthModule,
     SuplidoresModule,
+    MetricsModule
   ],
-  // controllers: [AppController],
   // providers: [AppService],
 
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+    configure(consumer: MiddlewareConsumer) {
+    consumer.apply(MetricsMiddleware).forRoutes('*');
+  }
+}
