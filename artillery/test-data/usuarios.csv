@@ -1,0 +1,51 @@
+username,password,nombre,apellido,correo,empresa,role
+testuser1,password123,Sadye,Satterfield,Hal41@gmail.com,Toy Inc,employee
+testuser2,password123,Olga,Christiansen,Stephanie_Kilback1@hotmail.com,Mayer Inc,employee
+testuser3,password123,Rowan,Collier,Olin_Jacobson38@hotmail.com,Blanda - Durgan,employee
+testuser4,password123,Ismael,Crona,Kiley_Cremin@gmail.com,Spinka - Corkery,client
+testuser5,password123,Megane,Wilkinson,Kristin.Gleichner@yahoo.com,Torp - Lind,client
+testuser6,password123,Orland,Russel,Nellie65@hotmail.com,Brekke - Stehr,client
+testuser7,password123,Arely,Goodwin,Hardy33@gmail.com,Keebler, Zboncak and Von,client
+testuser8,password123,Mallie,Altenwerth,Friedrich99@yahoo.com,Hand - Keebler,client
+testuser9,password123,Geoffrey,Huel,Patrick.Macejkovic59@hotmail.com,Hudson and Sons,employee
+testuser10,password123,Eleazar,Willms,Mario31@gmail.com,Feil - Hickle,client
+testuser11,password123,Tianna,Will,Talon_Casper@yahoo.com,Smitham, Balistreri and O'Kon,employee
+testuser12,password123,Dejuan,O'Connell,Pansy61@hotmail.com,Jaskolski, Orn and Bergstrom,employee
+testuser13,password123,Xavier,Heaney,Scotty5@hotmail.com,Heaney, Cole and Schoen,employee
+testuser14,password123,Howell,Collins,Coleman29@yahoo.com,Dickens - Daniel,employee
+testuser15,password123,Delaney,Lubowitz,Annamarie.Stehr70@hotmail.com,Hickle - Reynolds,employee
+testuser16,password123,Theodora,Tillman,Dominique52@hotmail.com,Hammes and Sons,client
+testuser17,password123,Quincy,Metz,Akeem58@hotmail.com,Frami - Prosacco,employee
+testuser18,password123,Christina,Kuhn,Brown.Hirthe58@hotmail.com,Bernhard LLC,client
+testuser19,password123,Gonzalo,Gutmann,Aurelie.Prosacco@yahoo.com,Volkman and Sons,client
+testuser20,password123,Araceli,Cummings,Kamille30@yahoo.com,Schinner - Wilkinson,employee
+testuser21,password123,Luigi,Rowe,Ethel_Kassulke@yahoo.com,Cronin - Block,client
+testuser22,password123,Leonora,Zulauf,Armand_Pfannerstill-Pollich10@yahoo.com,Kuhic, Brekke and Corwin,client
+testuser23,password123,Bethel,Swift,Zoe_Douglas74@hotmail.com,Denesik - Halvorson,client
+testuser24,password123,Junius,Torphy,Cameron_Metz@gmail.com,Mayer, Boyer and Welch,client
+testuser25,password123,Raleigh,Schmidt,Herman.Hartmann@gmail.com,Dickinson - Rosenbaum,client
+testuser26,password123,Watson,Sauer,Rosario_Waters@hotmail.com,Lowe Inc,client
+testuser27,password123,Toy,Hettinger,Yesenia.Fay-Denesik23@gmail.com,Bednar LLC,client
+testuser28,password123,Jillian,Wyman,Chris.Hermiston@hotmail.com,Parker, Gutkowski and Cartwright,client
+testuser29,password123,Madaline,Dickens,Darryl7@gmail.com,Labadie - Lakin,employee
+testuser30,password123,Ashtyn,Krajcik,Lilly_Baumbach@yahoo.com,Torphy - Greenholt,client
+testuser31,password123,Casimer,Cronin,Isaiah94@gmail.com,Prohaska - Klocko,employee
+testuser32,password123,Demetrius,Johnston,Baby12@gmail.com,Nikolaus - Bartoletti,employee
+testuser33,password123,Rozella,Tromp,Ryleigh_Jones-Donnelly@yahoo.com,Rutherford Group,employee
+testuser34,password123,Emanuel,Toy,Casper56@hotmail.com,Ward Inc,client
+testuser35,password123,Pansy,Blanda,Marcelle_Volkman63@yahoo.com,Hagenes - Quitzon,employee
+testuser36,password123,Isobel,Upton,Heber_Cummerata@hotmail.com,Morissette, Heidenreich and Kuvalis,employee
+testuser37,password123,Rory,Zemlak,Marlen.Corkery@hotmail.com,McDermott - Zemlak,employee
+testuser38,password123,Laurie,Treutel,Jaydon_Macejkovic1@gmail.com,Nikolaus - Green,client
+testuser39,password123,Etha,Feeney,Damian.Glover@hotmail.com,Rogahn - Heller,employee
+testuser40,password123,Jarret,Moore-Wuckert,Coby.Walsh83@hotmail.com,Greenfelder - Daugherty,client
+testuser41,password123,Leta,Feeney,Lynn.Waelchi@hotmail.com,Gleason - Beatty,client
+testuser42,password123,Jayda,Willms,Romaine_Hodkiewicz@gmail.com,Maggio - Ondricka,employee
+testuser43,password123,Pietro,Boehm,Bradford74@gmail.com,Kovacek, Lynch and Abshire,client
+testuser44,password123,Laila,Kilback,Tad.Lang87@gmail.com,Langosh - Grady,client
+testuser45,password123,Gudrun,Langworth,Alta.Murray@gmail.com,Farrell and Sons,client
+testuser46,password123,Cruz,Lowe,Ibrahim_Balistreri@yahoo.com,Yost and Sons,client
+testuser47,password123,Raphael,Schuppe,Bernadine.Friesen62@hotmail.com,Schroeder and Sons,client
+testuser48,password123,Isobel,Pouros,Beryl.Schultz23@yahoo.com,Schoen - Howe,employee
+testuser49,password123,Royal,Zieme,Erik.Balistreri@yahoo.com,King, Fahey and Stracke,client
+testuser50,password123,Ignacio,O'Kon,Anastasia21@yahoo.com,Kihn Inc,client

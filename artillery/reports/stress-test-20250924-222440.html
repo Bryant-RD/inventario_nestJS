@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Reporte Stress Test</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  body { font-family: Arial; margin: 20px; }
+  h1, h2 { text-align: center; }
+  .card { background: #f9f9f9; padding: 20px; margin: 10px 0; border-radius: 10px; }
+  canvas { max-width: 800px; margin: 20px auto; display: block; }
+  pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
+</style>
+</head>
+<body>
+<h1>Stress Test Report</h1>
+
+<div class="card">
+<h2>Resumen General</h2>
+<p><strong>Escenarios creados:</strong> 0</p>
+<p><strong>Escenarios completados:</strong> 0</p>
+<p><strong>Requests completados:</strong> 0</p>
+<p><strong>Latencia (ms):</strong> min 0, max 0, mean 0, p95 0, p99 0</p>
+</div>
+
+<div class="card">
+<h2>Distribución de Status Codes</h2>
+<canvas id="codesChart"></canvas>
+</div>
+
+<div class="card">
+<h2>Errores</h2>
+<pre>{}</pre>
+</div>
+
+<div class="card">
+<h2>Requests por Segundo & Latencia</h2>
+<canvas id="rpsChart"></canvas>
+</div>
+
+<script>
+const ctxCodes = document.getElementById('codesChart');
+new Chart(ctxCodes, {
+  type: 'pie',
+  data: {
+    labels: [],
+    datasets: [{
+      label: 'Status Codes',
+      data: [],
+      backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0', '#9966FF']
+    }]
+  }
+});
+
+const ctxRPS = document.getElementById('rpsChart');
+new Chart(ctxRPS, {
+  type: 'line',
+  data: {
+    labels: ["Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date","Invalid Date"],
+    datasets: [
+      {
+        label: 'Requests por Segundo',
+        data: [null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],
+        borderColor: 'blue',
+        yAxisID: 'y1'
+      },
+      {
+        label: 'Latencia Media (ms)',
+        data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        borderColor: 'red',
+        yAxisID: 'y2'
+      }
+    ]
+  },
+  options: {
+    scales: {
+      y1: { type: 'linear', position: 'left', title: { display: true, text: 'RPS' } },
+      y2: { type: 'linear', position: 'right', title: { display: true, text: 'Latencia (ms)' } }
+    }
+  }
+});
+</script>
+</body>
+</html>

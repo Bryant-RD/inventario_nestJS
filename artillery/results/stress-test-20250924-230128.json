@@ -1,0 +1,775 @@
+{
+  "aggregate": {
+    "counters": {
+      "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 2847,
+      "vusers.created": 13275,
+      "http.requests": 13275,
+      "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 3853,
+      "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 1840,
+      "vusers.created_by_name.Pruebas de Error y Validación": 993,
+      "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 2823,
+      "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 2148,
+      "errors.ETIMEDOUT": 9903,
+      "vusers.failed": 13275,
+      "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 7066,
+      "vusers.created_by_name.Health Check - Verificar disponibilidad": 919,
+      "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 689,
+      "plugins.metrics-by-endpoint./auth/login.errors.ECONNRESET": 2443,
+      "errors.ECONNRESET": 3372,
+      "plugins.metrics-by-endpoint./.errors.ECONNRESET": 230,
+      "plugins.metrics-by-endpoint./auth/register.errors.ECONNRESET": 699
+    },
+    "rates": {
+      "http.request_rate": 29
+    },
+    "firstCounterAt": 1758769293263,
+    "lastCounterAt": 1758769543441,
+    "firstMetricAt": 1758769293263,
+    "lastMetricAt": 1758769543441,
+    "period": 1758769540000,
+    "summaries": {},
+    "histograms": {}
+  },
+  "intermediate": [
+    {
+      "counters": {
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 12,
+        "vusers.created": 47,
+        "http.requests": 47,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 17,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 6,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 10,
+        "vusers.created_by_name.Pruebas de Error y Validación": 1,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 1
+      },
+      "rates": {
+        "http.request_rate": 9
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769293263,
+      "lastCounterAt": 1758769299709,
+      "firstMetricAt": 1758769293263,
+      "lastMetricAt": 1758769299709,
+      "period": "1758769290000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 23,
+        "vusers.created": 109,
+        "http.requests": 109,
+        "vusers.created_by_name.Pruebas de Error y Validación": 9,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 29,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 12,
+        "errors.ETIMEDOUT": 47,
+        "vusers.failed": 47,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 34,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 30,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 12,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 6,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 1
+      },
+      "rates": {
+        "http.request_rate": 13
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769300276,
+      "lastCounterAt": 1758769309980,
+      "firstMetricAt": 1758769300276,
+      "lastMetricAt": 1758769309980,
+      "period": "1758769300000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 23,
+        "errors.ETIMEDOUT": 109,
+        "vusers.failed": 109,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 43,
+        "vusers.created": 154,
+        "http.requests": 154,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 80,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 34,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 28,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 9,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 24,
+        "vusers.created_by_name.Pruebas de Error y Validación": 16,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 6
+      },
+      "rates": {
+        "http.request_rate": 19
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769310057,
+      "lastCounterAt": 1758769319991,
+      "firstMetricAt": 1758769310057,
+      "lastMetricAt": 1758769319991,
+      "period": "1758769310000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 111,
+        "errors.ETIMEDOUT": 154,
+        "vusers.failed": 154,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 59,
+        "vusers.created": 270,
+        "http.requests": 270,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 34,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 16,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 78,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 57,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 9,
+        "vusers.created_by_name.Pruebas de Error y Validación": 15,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 45
+      },
+      "rates": {
+        "http.request_rate": 30
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769320036,
+      "lastCounterAt": 1758769329976,
+      "firstMetricAt": 1758769320036,
+      "lastMetricAt": 1758769329976,
+      "period": "1758769320000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 197,
+        "errors.ETIMEDOUT": 270,
+        "vusers.failed": 270,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 64,
+        "vusers.created": 300,
+        "http.requests": 300,
+        "vusers.created_by_name.Pruebas de Error y Validación": 21,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 46,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 16,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 58,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 84,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 57,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 27
+      },
+      "rates": {
+        "http.request_rate": 30
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769330005,
+      "lastCounterAt": 1758769339959,
+      "firstMetricAt": 1758769330005,
+      "lastMetricAt": 1758769339959,
+      "period": "1758769330000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 103,
+        "vusers.created": 300,
+        "http.requests": 300,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 64,
+        "errors.ETIMEDOUT": 300,
+        "vusers.failed": 300,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 209,
+        "vusers.created_by_name.Pruebas de Error y Validación": 21,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 35,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 72,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 56,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 27,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 13
+      },
+      "rates": {
+        "http.request_rate": 30
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769340005,
+      "lastCounterAt": 1758769349959,
+      "firstMetricAt": 1758769340005,
+      "lastMetricAt": 1758769349959,
+      "period": "1758769340000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 215,
+        "errors.ETIMEDOUT": 300,
+        "vusers.failed": 300,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 67,
+        "vusers.created": 300,
+        "http.requests": 300,
+        "vusers.created_by_name.Pruebas de Error y Validación": 23,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 98,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 55,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 72,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 25,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 32,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 13
+      },
+      "rates": {
+        "http.request_rate": 30
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769350005,
+      "lastCounterAt": 1758769359959,
+      "firstMetricAt": 1758769350005,
+      "lastMetricAt": 1758769359959,
+      "period": "1758769350000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 220,
+        "errors.ETIMEDOUT": 300,
+        "vusers.failed": 300,
+        "vusers.created_by_name.Pruebas de Error y Validación": 22,
+        "vusers.created": 300,
+        "http.requests": 300,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 55,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 55,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 19,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 93,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 68,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 25,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 43
+      },
+      "rates": {
+        "http.request_rate": 30
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769360005,
+      "lastCounterAt": 1758769369959,
+      "firstMetricAt": 1758769360005,
+      "lastMetricAt": 1758769369959,
+      "period": "1758769360000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 213,
+        "errors.ETIMEDOUT": 300,
+        "vusers.failed": 300,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 84,
+        "vusers.created": 300,
+        "http.requests": 300,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 71,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 57,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 19,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 44,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 68,
+        "vusers.created_by_name.Pruebas de Error y Validación": 24,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 20
+      },
+      "rates": {
+        "http.request_rate": 30
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769370005,
+      "lastCounterAt": 1758769379959,
+      "firstMetricAt": 1758769370005,
+      "lastMetricAt": 1758769379959,
+      "period": "1758769370000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 72,
+        "vusers.created": 300,
+        "http.requests": 300,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 209,
+        "errors.ETIMEDOUT": 300,
+        "vusers.failed": 300,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 71,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 87,
+        "vusers.created_by_name.Pruebas de Error y Validación": 22,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 53,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 20,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 40,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 26
+      },
+      "rates": {
+        "http.request_rate": 30
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769380005,
+      "lastCounterAt": 1758769389959,
+      "firstMetricAt": 1758769380005,
+      "lastMetricAt": 1758769389959,
+      "period": "1758769380000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 221,
+        "errors.ETIMEDOUT": 300,
+        "vusers.failed": 300,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 89,
+        "vusers.created": 300,
+        "http.requests": 300,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 17,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 69,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 41,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 53,
+        "vusers.created_by_name.Pruebas de Error y Validación": 25,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 59,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 26
+      },
+      "rates": {
+        "http.request_rate": 30
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769390005,
+      "lastCounterAt": 1758769399960,
+      "firstMetricAt": 1758769390005,
+      "lastMetricAt": 1758769399960,
+      "period": "1758769390000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 91,
+        "vusers.created": 300,
+        "http.requests": 300,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 214,
+        "errors.ETIMEDOUT": 300,
+        "vusers.failed": 300,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 17,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 69,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 64,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 77,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 15,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 36,
+        "vusers.created_by_name.Pruebas de Error y Validación": 17
+      },
+      "rates": {
+        "http.request_rate": 30
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769400005,
+      "lastCounterAt": 1758769409960,
+      "firstMetricAt": 1758769400005,
+      "lastMetricAt": 1758769409960,
+      "period": "1758769400000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 208,
+        "errors.ETIMEDOUT": 300,
+        "vusers.failed": 300,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 69,
+        "vusers.created": 300,
+        "http.requests": 300,
+        "vusers.created_by_name.Pruebas de Error y Validación": 26,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 70,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 69,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 49,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 77,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 15,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 17
+      },
+      "rates": {
+        "http.request_rate": 30
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769410005,
+      "lastCounterAt": 1758769419959,
+      "firstMetricAt": 1758769410005,
+      "lastMetricAt": 1758769419959,
+      "period": "1758769410000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 59,
+        "vusers.created": 300,
+        "http.requests": 300,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 214,
+        "errors.ETIMEDOUT": 300,
+        "vusers.failed": 300,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 94,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 74,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 69,
+        "vusers.created_by_name.Pruebas de Error y Validación": 26,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 17,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 29,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 18
+      },
+      "rates": {
+        "http.request_rate": 30
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769420005,
+      "lastCounterAt": 1758769429959,
+      "firstMetricAt": 1758769420005,
+      "lastMetricAt": 1758769429959,
+      "period": "1758769420000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 208,
+        "errors.ETIMEDOUT": 300,
+        "vusers.failed": 300,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 91,
+        "vusers.created": 300,
+        "http.requests": 300,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 61,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 60,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 74,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 52,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 23,
+        "vusers.created_by_name.Pruebas de Error y Validación": 13,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 18
+      },
+      "rates": {
+        "http.request_rate": 30
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769430005,
+      "lastCounterAt": 1758769439959,
+      "firstMetricAt": 1758769430005,
+      "lastMetricAt": 1758769439959,
+      "period": "1758769430000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 131,
+        "vusers.created": 657,
+        "http.requests": 657,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 217,
+        "errors.ETIMEDOUT": 300,
+        "vusers.failed": 300,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 208,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 60,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 132,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 89,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 23,
+        "vusers.created_by_name.Pruebas de Error y Validación": 45,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 52
+      },
+      "rates": {
+        "http.request_rate": 68
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769440005,
+      "lastCounterAt": 1758769449996,
+      "firstMetricAt": 1758769440005,
+      "lastMetricAt": 1758769449996,
+      "period": "1758769440000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 197,
+        "vusers.created": 800,
+        "http.requests": 800,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 473,
+        "errors.ETIMEDOUT": 657,
+        "vusers.failed": 657,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 112,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 176,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 199,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 132,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 56,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 52,
+        "vusers.created_by_name.Pruebas de Error y Validación": 60
+      },
+      "rates": {
+        "http.request_rate": 80
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769450002,
+      "lastCounterAt": 1758769459997,
+      "firstMetricAt": 1758769450002,
+      "lastMetricAt": 1758769459997,
+      "period": "1758769450000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 568,
+        "errors.ETIMEDOUT": 800,
+        "vusers.failed": 1088,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 225,
+        "vusers.created": 800,
+        "http.requests": 800,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 159,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 176,
+        "vusers.created_by_name.Pruebas de Error y Validación": 60,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 50,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 180,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 56,
+        "plugins.metrics-by-endpoint./auth/login.errors.ECONNRESET": 211,
+        "errors.ECONNRESET": 288,
+        "plugins.metrics-by-endpoint./.errors.ECONNRESET": 18,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 126,
+        "plugins.metrics-by-endpoint./auth/register.errors.ECONNRESET": 59
+      },
+      "rates": {
+        "http.request_rate": 80
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769460002,
+      "lastCounterAt": 1758769469997,
+      "firstMetricAt": 1758769460002,
+      "lastMetricAt": 1758769469997,
+      "period": "1758769460000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 165,
+        "vusers.created": 800,
+        "http.requests": 800,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 380,
+        "errors.ETIMEDOUT": 512,
+        "vusers.failed": 659,
+        "plugins.metrics-by-endpoint./auth/login.errors.ECONNRESET": 100,
+        "errors.ECONNRESET": 147,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 181,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 100,
+        "plugins.metrics-by-endpoint./auth/register.errors.ECONNRESET": 39,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 32,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 59,
+        "plugins.metrics-by-endpoint./.errors.ECONNRESET": 8,
+        "vusers.created_by_name.Pruebas de Error y Validación": 63,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 109,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 223
+      },
+      "rates": {
+        "http.request_rate": 80
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769470002,
+      "lastCounterAt": 1758769479997,
+      "firstMetricAt": 1758769470002,
+      "lastMetricAt": 1758769479997,
+      "period": "1758769470000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 176,
+        "vusers.created": 800,
+        "http.requests": 800,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 142,
+        "errors.ETIMEDOUT": 653,
+        "vusers.failed": 653,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 162,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 460,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 108,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 228,
+        "vusers.created_by_name.Pruebas de Error y Validación": 56,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 51,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 70
+      },
+      "rates": {
+        "http.request_rate": 80
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769480002,
+      "lastCounterAt": 1758769489997,
+      "firstMetricAt": 1758769480002,
+      "lastMetricAt": 1758769489997,
+      "period": "1758769480000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 176,
+        "errors.ETIMEDOUT": 800,
+        "vusers.failed": 1084,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 184,
+        "vusers.created": 800,
+        "http.requests": 800,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 554,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 156,
+        "vusers.created_by_name.Pruebas de Error y Validación": 58,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 111,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 55,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 70,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 236,
+        "plugins.metrics-by-endpoint./auth/login.errors.ECONNRESET": 198,
+        "errors.ECONNRESET": 284,
+        "plugins.metrics-by-endpoint./.errors.ECONNRESET": 26,
+        "plugins.metrics-by-endpoint./auth/register.errors.ECONNRESET": 60
+      },
+      "rates": {
+        "http.request_rate": 80
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769490002,
+      "lastCounterAt": 1758769499998,
+      "firstMetricAt": 1758769490002,
+      "lastMetricAt": 1758769499998,
+      "period": "1758769490000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 267,
+        "vusers.created": 1296,
+        "http.requests": 1295,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 124,
+        "errors.ETIMEDOUT": 516,
+        "vusers.failed": 1159,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 390,
+        "plugins.metrics-by-endpoint./auth/login.errors.ECONNRESET": 461,
+        "errors.ECONNRESET": 643,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 363,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 108,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 166,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 289,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 29,
+        "plugins.metrics-by-endpoint./auth/register.errors.ECONNRESET": 131,
+        "vusers.created_by_name.Pruebas de Error y Validación": 76,
+        "plugins.metrics-by-endpoint./.errors.ECONNRESET": 51
+      },
+      "rates": {
+        "http.request_rate": 131
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769500002,
+      "lastCounterAt": 1758769509999,
+      "firstMetricAt": 1758769500002,
+      "lastMetricAt": 1758769509999,
+      "period": "1758769500000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 115,
+        "vusers.created": 1500,
+        "http.requests": 1501,
+        "plugins.metrics-by-endpoint./.errors.ECONNRESET": 57,
+        "errors.ECONNRESET": 699,
+        "vusers.failed": 1351,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 136,
+        "errors.ETIMEDOUT": 652,
+        "vusers.created_by_name.Pruebas de Error y Validación": 129,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 226,
+        "plugins.metrics-by-endpoint./auth/login.errors.ECONNRESET": 501,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 395,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 459,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 311,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 57,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 324,
+        "plugins.metrics-by-endpoint./auth/register.errors.ECONNRESET": 141
+      },
+      "rates": {
+        "http.request_rate": 150
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769510000,
+      "lastCounterAt": 1758769519999,
+      "firstMetricAt": 1758769510000,
+      "lastMetricAt": 1758769519999,
+      "period": "1758769510000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 75,
+        "vusers.created": 1500,
+        "http.requests": 1499,
+        "plugins.metrics-by-endpoint./.errors.ECONNRESET": 50,
+        "errors.ECONNRESET": 981,
+        "vusers.failed": 1782,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 325,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 573,
+        "errors.ETIMEDOUT": 801,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 170,
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 470,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 303,
+        "plugins.metrics-by-endpoint./auth/register.errors.ECONNRESET": 187,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 203,
+        "plugins.metrics-by-endpoint./auth/login.errors.ECONNRESET": 744,
+        "vusers.created_by_name.Pruebas de Error y Validación": 124,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 58
+      },
+      "rates": {
+        "http.request_rate": 150
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769520000,
+      "lastCounterAt": 1758769529999,
+      "firstMetricAt": 1758769520000,
+      "lastMetricAt": 1758769529999,
+      "period": "1758769520000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "vusers.created_by_name.Gestión de Productos - Flujo CRUD Completo": 130,
+        "vusers.created": 442,
+        "http.requests": 443,
+        "plugins.metrics-by-endpoint./auth/login.errors.ECONNRESET": 228,
+        "errors.ECONNRESET": 330,
+        "vusers.failed": 848,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 116,
+        "errors.ETIMEDOUT": 518,
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 377,
+        "vusers.created_by_name.Gestión de Pedidos - Flujo Completo": 92,
+        "vusers.created_by_name.Health Check - Verificar disponibilidad": 27,
+        "plugins.metrics-by-endpoint./.errors.ECONNRESET": 20,
+        "vusers.created_by_name.Pruebas de Búsqueda y Filtros": 52,
+        "vusers.created_by_name.Flujo Completo de Autenticación y Gestión de Usuarios": 100,
+        "plugins.metrics-by-endpoint./auth/register.errors.ECONNRESET": 82,
+        "vusers.created_by_name.Pruebas de Error y Validación": 41,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 25
+      },
+      "rates": {
+        "http.request_rate": 150
+      },
+      "http.request_rate": null,
+      "firstCounterAt": 1758769530000,
+      "lastCounterAt": 1758769539961,
+      "firstMetricAt": 1758769530000,
+      "lastMetricAt": 1758769539961,
+      "period": "1758769530000",
+      "summaries": {},
+      "histograms": {}
+    },
+    {
+      "counters": {
+        "plugins.metrics-by-endpoint./auth/login.errors.ETIMEDOUT": 89,
+        "errors.ETIMEDOUT": 114,
+        "vusers.failed": 114,
+        "plugins.metrics-by-endpoint./auth/register.errors.ETIMEDOUT": 18,
+        "plugins.metrics-by-endpoint./.errors.ETIMEDOUT": 7
+      },
+      "rates": {},
+      "firstCounterAt": 1758769540022,
+      "lastCounterAt": 1758769543441,
+      "firstMetricAt": 1758769540022,
+      "lastMetricAt": 1758769543441,
+      "period": "1758769540000",
+      "summaries": {},
+      "histograms": {}
+    }
+  ]
+}

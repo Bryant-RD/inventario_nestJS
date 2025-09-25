@@ -1,0 +1,269 @@
+# artillery/nestjs-stress-test.yml
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 30
+      arrivalRate: 5
+      rampTo: 20
+      name: "Fase de calentamiento"
+    - duration: 120
+      arrivalRate: 30
+      name: "Carga normal"
+    - duration: 60
+      arrivalRate: 80
+      name: "Alta carga"
+    - duration: 30
+      arrivalRate: 150
+      name: "Pico de estrés"
+  
+  plugins:
+    ensure: {}
+    metrics-by-endpoint: {}
+    apdex: {}
+    # publish-metrics: {}
+
+  defaults:
+    headers:
+      Content-Type: "application/json"
+      User-Agent: "Artillery Stress Test"
+
+  # Umbrales de performance específicos para tu aplicación
+  thresholds:
+    - http.response_time.p95: 2000    # 95% de requests < 2 segundos
+    - http.response_time.p99: 5000    # 99% de requests < 5 segundos
+    - http.errors: [0.01]             # Máximo 1% de errores
+
+scenarios:
+  - name: "Health Check - Verificar disponibilidad"
+    weight: 1
+    flow:
+      - get:
+          url: "/"
+          ensure:
+            statusCode: 200
+      - think: 2
+
+  - name: "Flujo Completo de Autenticación y Gestión de Usuarios"
+    weight: 3
+    flow:
+      # 1. Registro de nuevo usuario
+      - post:
+          url: "/auth/register"
+          json:
+            nombre: "Usuario {{ $randomNumber(1000, 9999) }}"
+            apellido: "Test"
+            correo: "test{{ $randomNumber(1000, 9999) }}@example.com"
+            username: "user{{ $randomNumber(1000, 9999) }}"
+            password: "password123"
+            empresa: "Empresa Test"
+            role: "employee"
+          capture:
+            json: "$.id"
+            as: "userId"
+          ensure:
+            statusCode: 201
+
+      # 2. Login con el usuario creado
+      - post:
+          url: "/auth/login"
+          json:
+            username: "{{ username }}"
+            password: "password123"
+          capture:
+            json: "$.access_token"
+            as: "authToken"
+          ensure:
+            statusCode: 201
+
+      # 3. Obtener perfil de usuario
+      - get:
+          url: "/auth/profile"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          ensure:
+            statusCode: 200
+
+      # 4. Obtener lista de usuarios (solo para admin/employee)
+      - get:
+          url: "/usuarios"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          ensure:
+            statusCode: 200
+
+      - think: 3
+
+  - name: "Gestión de Productos - Flujo CRUD Completo"
+    weight: 4
+    flow:
+      # 1. Login primero
+      - post:
+          url: "/auth/login"
+          json:
+            username: "cucumber_employee"
+            password: "password"
+          capture:
+            json: "$.access_token"
+            as: "authToken"
+
+      # 2. Crear nuevo producto
+      - post:
+          url: "/productos"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          json:
+            nombre: "Producto Stress Test {{ $randomNumber(1000, 9999) }}"
+            descripcion: "Descripción del producto de prueba"
+            precio: "{{ $randomNumber(10, 1000) }}"
+            stock: "{{ $randomNumber(1, 100) }}"
+            categoria: "Electrónicos"
+            sku: "SKU-{{ $randomNumber(10000, 99999) }}"
+          capture:
+            json: "$.id"
+            as: "productoId"
+          ensure:
+            statusCode: 201
+
+      # 3. Obtener producto por ID
+      - get:
+          url: "/productos/{{ productoId }}"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          ensure:
+            statusCode: 200
+
+      # 4. Actualizar producto
+      - patch:
+          url: "/productos/{{ productoId }}"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          json:
+            stock: "{{ $randomNumber(50, 200) }}"
+            precio: "{{ $randomNumber(500, 1500) }}"
+          ensure:
+            statusCode: 200
+
+      # 5. Listar todos los productos
+      - get:
+          url: "/productos"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          ensure:
+            statusCode: 200
+
+      # 6. Buscar productos por nombre
+      - get:
+          url: "/productos/buscar/Stress"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          ensure:
+            statusCode: 200
+
+      - think: 5
+
+  - name: "Gestión de Pedidos - Flujo Completo"
+    weight: 3
+    flow:
+      # 1. Login
+      - post:
+          url: "/auth/login"
+          json:
+            username: "cucumber_client"
+            password: "password"
+          capture:
+            json: "$.access_token"
+            as: "authToken"
+
+      # 2. Crear nuevo pedido
+      - post:
+          url: "/pedidos"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          json:
+            productos: [
+              {
+                productoId: 1,
+                cantidad: 2,
+                precioUnitario: 100
+              },
+              {
+                productoId: 2,
+                cantidad: 1,
+                precioUnitario: 50
+              }
+            ]
+            total: 250
+            estado: "pendiente"
+          capture:
+            json: "$.id"
+            as: "pedidoId"
+          ensure:
+            statusCode: 201
+
+      # 3. Obtener pedidos del usuario
+      - get:
+          url: "/pedidos"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          ensure:
+            statusCode: 200
+
+      # 4. Obtener pedido específico
+      - get:
+          url: "/pedidos/{{ pedidoId }}"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          ensure:
+            statusCode: 200
+
+      - think: 4
+
+  - name: "Pruebas de Búsqueda y Filtros"
+    weight: 2
+    flow:
+      - post:
+          url: "/auth/login"
+          json:
+            username: "cucumber_employee"
+            password: "password"
+          capture:
+            json: "$.access_token"
+            as: "authToken"
+
+      # Búsqueda de productos con diferentes criterios
+      - get:
+          url: "/productos"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          qs:
+            page: 1
+            limit: 20
+            categoria: "Electrónicos"
+          ensure:
+            statusCode: 200
+
+      # Búsqueda por nombre
+      - get:
+          url: "/productos/buscar/Producto"
+          headers:
+            Authorization: "Bearer {{ authToken }}"
+          ensure:
+            statusCode: 200
+
+  - name: "Pruebas de Error y Validación"
+    weight: 1
+    flow:
+      # Login con credenciales incorrectas
+      - post:
+          url: "/auth/login"
+          json:
+            username: "usuario_inexistente"
+            password: "password_incorrecto"
+          ensure:
+            statusCode: 401
+
+      # Acceso no autorizado a endpoints protegidos
+      - get:
+          url: "/usuarios"
+          ensure:
+            statusCode: 401
