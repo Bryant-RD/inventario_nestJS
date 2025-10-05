@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1106999
+              "duration": 52149200
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2018299
+              "duration": 394999
             }
           },
           {
@@ -40,7 +40,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 134608100
+              "duration": 83331599
             }
           },
           {
@@ -53,7 +53,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 19819999
+              "duration": 58812100
             }
           },
           {
@@ -62,18 +62,17 @@
             "line": 11,
             "name": "estoy autenticado como el usuario \"cucumber_employee\" con contraseña \"password\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:37"
+              "location": "features\\steps_definitions\\products.steps.ts:57"
             },
             "result": {
-              "status": "failed",
-              "duration": 23662400,
-              "error_message": "AssertionError\n    + expected - actual\n\n    -401\n    +201\n\n    at CustomWorld.<anonymous> (C:\\Users\\bryan\\Desktop\\proyectos_universidad\\inventario_nestJS\\features\\steps_definitions\\products.steps.ts:41:27)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)"
+              "status": "passed",
+              "duration": 57415799
             }
           },
           {
             "arguments": [
               {
-                "content": "{\n  \"nombre\": \"Producto Cucumber\",\n  \"descripcion\": \"Creado desde una prueba de aceptación\",\n  \"categoria\": \"Cucumber\",\n  \"precio\": 150.50,\n  \"cantidad\": 25\n}",
+                "content": "{\n  \"nombre\": \"Producto Cucumber\",\n  \"descripcion\": \"Creado desde una prueba de aceptación\",\n  \"categoria\": \"Cucumber\",\n  \"precio\": 150.50,\n  \"cantidad\": 25,\n  \"cantidadMinima\": 5\n}",
                 "line": 13
               }
             ],
@@ -81,34 +80,37 @@
             "line": 12,
             "name": "envío una petición POST a \"/productos\" con el siguiente cuerpo:",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:46"
+              "location": "features\\steps_definitions\\products.steps.ts:67"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 10966799
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 22,
+            "line": 23,
             "name": "la respuesta debe tener el código de estado 201",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:103"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 310399
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 23,
+            "line": 24,
             "name": "el cuerpo de la respuesta debe contener una propiedad \"nombre\" con el valor \"Producto Cucumber\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:82"
+              "location": "features\\steps_definitions\\products.steps.ts:110"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 681000
             }
           }
         ],
@@ -119,7 +121,7 @@
         "description": "",
         "id": "gestión-de-productos;un-cliente-no-tiene-permisos-para-crear-un-producto",
         "keyword": "Scenario",
-        "line": 25,
+        "line": 26,
         "name": "Un cliente no tiene permisos para crear un producto",
         "steps": [
           {
@@ -127,7 +129,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 470800
+              "duration": 50732700
             }
           },
           {
@@ -140,7 +142,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 601700
+              "duration": 128600
             }
           },
           {
@@ -153,7 +155,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 38346199
+              "duration": 57636300
             }
           },
           {
@@ -166,49 +168,51 @@
             },
             "result": {
               "status": "passed",
-              "duration": 33334699
+              "duration": 58081700
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 26,
+            "line": 27,
             "name": "estoy autenticado como el usuario \"cucumber_client\" con contraseña \"password\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:37"
+              "location": "features\\steps_definitions\\products.steps.ts:57"
             },
             "result": {
-              "status": "failed",
-              "duration": 15803299,
-              "error_message": "AssertionError\n    + expected - actual\n\n    -401\n    +201\n\n    at CustomWorld.<anonymous> (C:\\Users\\bryan\\Desktop\\proyectos_universidad\\inventario_nestJS\\features\\steps_definitions\\products.steps.ts:41:27)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)"
+              "status": "passed",
+              "duration": 52609600
             }
           },
           {
             "arguments": [
               {
                 "content": "{ \"nombre\": \"Producto Ilegal\" }",
-                "line": 28
+                "line": 29
               }
             ],
             "keyword": "When ",
-            "line": 27,
+            "line": 28,
             "name": "envío una petición POST a \"/productos\" con el siguiente cuerpo:",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:46"
+              "location": "features\\steps_definitions\\products.steps.ts:67"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 3766000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 31,
+            "line": 32,
             "name": "la respuesta debe tener el código de estado 403",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:103"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 63700
             }
           }
         ],
@@ -219,7 +223,7 @@
         "description": "",
         "id": "gestión-de-productos;cualquier-usuario-autenticado-puede-ver-la-lista-de-productos",
         "keyword": "Scenario",
-        "line": 33,
+        "line": 34,
         "name": "Cualquier usuario autenticado puede ver la lista de productos",
         "steps": [
           {
@@ -227,7 +231,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 569299
+              "duration": 46672300
             }
           },
           {
@@ -240,7 +244,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 243599
+              "duration": 67500
             }
           },
           {
@@ -253,7 +257,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 33220099
+              "duration": 60751100
             }
           },
           {
@@ -266,54 +270,103 @@
             },
             "result": {
               "status": "passed",
-              "duration": 21737399
+              "duration": 57395099
             }
           },
           {
-            "arguments": [],
+            "arguments": [
+              {
+                "content": "{ \"nombre\": \"Mouse Inalámbrico\" }",
+                "line": 36
+              }
+            ],
             "keyword": "Given ",
-            "line": 34,
-            "name": "estoy autenticado como el usuario \"cucumber_client\" con contraseña \"password\"",
+            "line": 35,
+            "name": "que existe un producto con el siguiente cuerpo:",
             "match": {
               "location": "features\\steps_definitions\\products.steps.ts:37"
             },
             "result": {
-              "status": "failed",
-              "duration": 18960999,
-              "error_message": "AssertionError\n    + expected - actual\n\n    -401\n    +201\n\n    at CustomWorld.<anonymous> (C:\\Users\\bryan\\Desktop\\proyectos_universidad\\inventario_nestJS\\features\\steps_definitions\\products.steps.ts:41:27)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 35,
-            "name": "envío una petición GET a \"/productos/\"",
-            "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:56"
-            },
-            "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 36,
-            "name": "la respuesta debe tener el código de estado 200",
-            "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 62318700
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "line": 37,
-            "name": "el cuerpo de la respuesta debe ser un array",
+            "line": 39,
+            "name": "estoy autenticado como el usuario \"cucumber_client\" con contraseña \"password\"",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:57"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 52156399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 40,
+            "name": "envío una petición GET a \"/productos\"",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:77"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4966699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 41,
+            "name": "la respuesta debe tener el código de estado 200",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:103"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 60399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 42,
+            "name": "el cuerpo de la respuesta debe ser un array",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:124"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 274099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 43,
+            "name": "el array de la respuesta debe tener 1 elemento(s)",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:117"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 348599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 44,
+            "name": "el primer elemento del array de la respuesta debe tener la propiedad \"nombre\" con el valor \"Mouse Inalámbrico\"",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:131"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 342400
             }
           }
         ],
@@ -343,7 +396,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 427499
+              "duration": 46284400
             }
           },
           {
@@ -356,7 +409,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 529500
+              "duration": 63400
             }
           },
           {
@@ -369,7 +422,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 23974499
+              "duration": 57045900
             }
           },
           {
@@ -378,12 +431,11 @@
             "line": 9,
             "name": "estoy autenticado como el usuario \"adminstock\" con contraseña \"password123\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:37"
+              "location": "features\\steps_definitions\\products.steps.ts:57"
             },
             "result": {
-              "status": "failed",
-              "duration": 11074899,
-              "error_message": "AssertionError\n    + expected - actual\n\n    -401\n    +201\n\n    at CustomWorld.<anonymous> (C:\\Users\\bryan\\Desktop\\proyectos_universidad\\inventario_nestJS\\features\\steps_definitions\\products.steps.ts:41:27)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)"
+              "status": "passed",
+              "duration": 54368300
             }
           },
           {
@@ -397,11 +449,11 @@
             "line": 12,
             "name": "envío una petición \"POST\" a \"/productos\" con el siguiente cuerpo:",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:65"
+              "location": "features\\steps_definitions\\products.steps.ts:86"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 12371000
             }
           },
           {
@@ -409,9 +461,12 @@
             "keyword": "And ",
             "line": 24,
             "name": "la respuesta debe tener el código de estado 201",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:103"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 74200
             }
           },
           {
@@ -425,11 +480,11 @@
             "line": 25,
             "name": "envío una petición \"POST\" a \"/productos\" con el siguiente cuerpo:",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:65"
+              "location": "features\\steps_definitions\\products.steps.ts:86"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 8483400
             }
           },
           {
@@ -437,9 +492,12 @@
             "keyword": "And ",
             "line": 37,
             "name": "la respuesta debe tener el código de estado 201",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:103"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 151300
             }
           },
           {
@@ -448,11 +506,11 @@
             "line": 39,
             "name": "envío una petición \"GET\" a \"/productos/stock/alerts\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:74"
+              "location": "features\\steps_definitions\\products.steps.ts:95"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 3392899
             }
           },
           {
@@ -460,9 +518,12 @@
             "keyword": "Then ",
             "line": 41,
             "name": "la respuesta debe tener el código de estado 200",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:103"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 75300
             }
           },
           {
@@ -470,9 +531,12 @@
             "keyword": "And ",
             "line": 42,
             "name": "el cuerpo de la respuesta debe ser un array",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:124"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 46299
             }
           },
           {
@@ -480,9 +544,13 @@
             "keyword": "And ",
             "line": 43,
             "name": "el array de la respuesta debe tener 1 elemento(s)",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:117"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "failed",
+              "duration": 446399,
+              "error_message": "AssertionError\n    + expected - actual\n\n    -0\n    +1\n\n    at CustomWorld.<anonymous> (C:\\Users\\Bryant-RD\\Desktop\\proyectos_universidad\\gestion_inventario\\backend\\features\\steps_definitions\\products.steps.ts:120:55)"
             }
           },
           {
@@ -490,8 +558,11 @@
             "keyword": "And ",
             "line": 44,
             "name": "el primer elemento del array de la respuesta debe tener la propiedad \"nombre\" con el valor \"Mouse Inalámbrico\"",
+            "match": {
+              "location": "features\\steps_definitions\\products.steps.ts:131"
+            },
             "result": {
-              "status": "undefined",
+              "status": "skipped",
               "duration": 0
             }
           }

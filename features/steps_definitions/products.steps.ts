@@ -35,6 +35,26 @@ Given(
 );
 
 Given(
+  'que existe un producto con el siguiente cuerpo:',
+  async function (this: CustomWorld, body: string) {
+    // Para crear un producto, necesitamos estar autenticados como empleado
+    const loginRes = await this.request
+      .post('/auth/login')
+      .send({ email: 'cucumber_employee@test.com', password: 'password' });
+    const employeeToken = loginRes.body.access_token;
+
+    const productData = JSON.parse(body);
+    // Aseguramos que el producto tenga todos los campos necesarios para no fallar
+    const fullProductData = {
+      ...{ descripcion: 'desc', categoria: 'cat', precio: 10, cantidad: 10, cantidadMinima: 1 },
+      ...productData,
+    };
+
+    await this.request.post('/productos').set('Authorization', `Bearer ${employeeToken}`).send(fullProductData);
+  },
+);
+
+Given(
   'estoy autenticado como el usuario {string} con contraseña {string}',
   async function (this: CustomWorld, username: string, pass: string) {
     // Corregido: El login se hace con email, no con username.
@@ -81,6 +101,13 @@ When(
 );
 
 Then(
+  'la respuesta debe tener el código de estado {int}',
+  function (this: CustomWorld, statusCode: number) {
+    expect(this.response.status).to.equal(statusCode);
+  },
+);
+
+Then(
   'el cuerpo de la respuesta debe contener una propiedad {string} con el valor {string}',
   function (this: CustomWorld, prop: string, value: string) {
     expect(this.response.body).to.have.property(prop, value);
@@ -88,8 +115,25 @@ Then(
 );
 
 Then(
-  'el array de la respuesta debe tener {int} elemento(s)',
+  'el array de la respuesta debe tener {int} elemento\\(s)',
   function (this: CustomWorld, count: number) {
     expect(this.response.body).to.be.an('array').with.lengthOf(count);
+  },
+);
+
+Then(
+  'el cuerpo de la respuesta debe ser un array',
+  function (this: CustomWorld) {
+    expect(this.response.body).to.be.an('array');
+  },
+);
+
+Then(
+  'el primer elemento del array de la respuesta debe tener la propiedad {string} con el valor {string}',
+  function (this: CustomWorld, prop: string, value: string) {
+    expect(this.response.body)
+      .to.be.an('array')
+      .with.length.greaterThan(0);
+    expect(this.response.body[0]).to.have.property(prop, value);
   },
 );

@@ -16,7 +16,8 @@ Feature: Gestión de Productos
         "descripcion": "Creado desde una prueba de aceptación",
         "categoria": "Cucumber",
         "precio": 150.50,
-        "cantidad": 25
+        "cantidad": 25,
+        "cantidadMinima": 5
       }
       """
     Then la respuesta debe tener el código de estado 201
@@ -31,8 +32,13 @@ Feature: Gestión de Productos
     Then la respuesta debe tener el código de estado 403
 
   Scenario: Cualquier usuario autenticado puede ver la lista de productos
-    Given estoy autenticado como el usuario "cucumber_client" con contraseña "password"
-    When envío una petición GET a "/productos/"
+    Given que existe un producto con el siguiente cuerpo:
+      """
+      { "nombre": "Mouse Inalámbrico" }
+      """
+    And estoy autenticado como el usuario "cucumber_client" con contraseña "password"
+    When envío una petición GET a "/productos"
     Then la respuesta debe tener el código de estado 200
     And el cuerpo de la respuesta debe ser un array
-
+    And el array de la respuesta debe tener 1 elemento(s)
+    And el primer elemento del array de la respuesta debe tener la propiedad "nombre" con el valor "Mouse Inalámbrico"
