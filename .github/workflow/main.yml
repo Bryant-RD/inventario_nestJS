@@ -86,13 +86,13 @@ jobs:
           push: true
           tags: tu-usuario-docker/inventario-nestjs:latest # <-- ¡Cambia esto!
 
-      - name: Deploy to production environment
-        run: |
-          echo "Este es un placeholder para tu script de despliegue."
-          echo "Aquí deberías:"
-          echo "1. Conectarte a tu servidor (ej. vía SSH)."
-          echo "2. Descargar la nueva imagen de Docker: docker pull tu-usuario-docker/inventario-nestjs:latest"
-          echo "3. Ejecutar las migraciones de la base de datos (si las tienes)."
-          echo "4. Reiniciar la aplicación con la nueva imagen (ej. con docker-compose)."
-          echo "Despliegue simulado exitoso."
+      # - name: Deploy to production environment
+      #   run: |
+      #     echo "Este es un placeholder para tu script de despliegue."
+      #     echo "Aquí deberías:"
+      #     echo "1. Conectarte a tu servidor (ej. vía SSH)."
+      #     echo "2. Descargar la nueva imagen de Docker: docker pull tu-usuario-docker/inventario-nestjs:latest"
+      #     echo "3. Ejecutar las migraciones de la base de datos (si las tienes)."
+      #     echo "4. Reiniciar la aplicación con la nueva imagen (ej. con docker-compose)."
+      #     echo "Despliegue simulado exitoso."
 
