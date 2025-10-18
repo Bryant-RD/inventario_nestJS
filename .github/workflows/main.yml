@@ -83,13 +83,26 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/inventario-nestjs:latest
 
-      - name: Deploy to production environment
-        run: |
-          echo "Este es un placeholder para tu script de despliegue."
-          echo "Aquí deberías:"
-          echo "1. Conectarte a tu servidor (ej. vía SSH)."
-          echo "2. Descargar la nueva imagen de Docker: docker pull tu-usuario-docker/inventario-nestjs:latest"
-          echo "3. Ejecutar las migraciones de la base de datos (si las tienes)."
-          echo "4. Reiniciar la aplicación con la nueva imagen (ej. con docker-compose)."
-          echo "Despliegue simulado exitoso."
+      - name: Deploy to Production via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            # Navega al directorio del proyecto en el servidor
+            cd /home/${{ secrets.SSH_USERNAME }}/inventario-app
 
+            # Crea o actualiza el archivo de variables de entorno de producción
+            echo "${{ secrets.PROD_ENV_FILE }}" > .env.prod
+
+            # Descarga la última imagen de la aplicación desde Docker Hub
+            docker-compose pull
+
+            # Ejecuta las migraciones de la base de datos en un contenedor temporal
+            # Asume que tienes un script "typeorm:run-migrations" en tu package.json
+            docker-compose run --rm app npm run typeorm:run-migrations
+
+            # Reinicia la aplicación con la nueva imagen
+            # El flag -d asegura que corra en segundo plano
+            docker-compose up -d

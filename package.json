@@ -23,7 +23,8 @@
     "stress-test:generate-data": "node artillery/scripts/generate-test-data.js",
     "stress-test:report": "node artillery/scripts/generate-html-report.js",
     "stress-test:quick": "artillery run artillery/nestjs-stress-test.yml --overrides '{\"config\": {\"phases\": [{\"duration\": 30, \"arrivalRate\": 10}]}}'",
-    "stress-test:ci": "artillery run artillery/nestjs-stress-test.yml --environment production"
+    "stress-test:ci": "artillery run artillery/nestjs-stress-test.yml --environment production",
+    "typeorm:run-migrations": "npm run typeorm -- -d ./data-source.ts migration:run"
   },
   "dependencies": {
     "@cucumber/cucumber": "^11.3.0",
