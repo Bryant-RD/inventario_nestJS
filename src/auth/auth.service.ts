@@ -12,7 +12,7 @@ import { CrearUsuarioDto } from 'src/usuarios/dtos/crear_usuario.dto';
 
 // Interfaz para definir la estructura del payload del JWT
 interface JwtPayload {
-  sub: number;
+  userId: number;
   email: string;
   role: string;
 }
@@ -68,8 +68,8 @@ async register(usuarioDTO : CrearUsuarioDto) {
     return result;
   }
 
-  async login(user: Omit<Usuario, 'password'>) {
-    const payload: JwtPayload = { sub: user.id, email: user.correo, role: user.role };
+  async login(user: JwtPayload) {
+    const payload: JwtPayload = { userId: user.userId, email: user.email, role: user.role };
     return {
       access_token: await this.jwtService.sign(payload),
     };

@@ -131,15 +131,17 @@ describe('AuthService', () => {
     });
   });
 
+  interface JwtPayload { userId: number; email: string; role: string; }
+  
   describe('login', () => {
     it('should return an access token', async () => {
-      const user = { id: 1, email: 'test@example.com', role: Role.EMPLOYEE };
+      const user :  JwtPayload = { userId: 1, email: 'test@example.com', role: Role.EMPLOYEE };
       const token = 'jwt-token';
       mockJwtService.sign.mockReturnValue(token);
 
       const result = await service.login(user);
 
-      expect(mockJwtService.sign).toHaveBeenCalledWith({ sub: user.id, email: user.email, role: user.role });
+      expect(mockJwtService.sign).toHaveBeenCalledWith({ sub: user.userId, email: user.email, role: user.role });
       expect(result).toEqual({ access_token: token });
     });
   });
