@@ -91,7 +91,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             # Navega al directorio del proyecto en el servidor
-            cd /home/${{ secrets.SSH_USERNAME }}/inventario-app
+            cd inventario_backend
 
             # Crea o actualiza el archivo de variables de entorno de producción
             echo "${{ secrets.PROD_ENV_FILE }}" > .env.prod
