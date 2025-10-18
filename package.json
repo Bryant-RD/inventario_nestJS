@@ -18,7 +18,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "cross-env NODE_ENV=test node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "cross-env NODE_ENV=test jest --config ./test/jest-e2e.json",
-    "test:cucumber": "cross-env NODE_ENV=test cucumber-js",
+    "test:cucumber": "cross-env NODE_ENV=test cucumber-js --require ./test/jest.setup.ts",
     "stress-test": "powershell -Command \"artillery run artillery/nestjs-stress-test.yml --output artillery/results/stress-test-$(Get-Date -Format 'yyyyMMdd-HHmmss').json\"",
     "stress-test:generate-data": "node artillery/scripts/generate-test-data.js",
     "stress-test:report": "node artillery/scripts/generate-html-report.js",
