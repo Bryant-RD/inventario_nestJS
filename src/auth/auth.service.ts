@@ -1,11 +1,21 @@
-import { Injectable, UnauthorizedException, ConflictException } from '@nestjs/common';
+import {
+  Injectable,
+  UnauthorizedException,
+  ConflictException,
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Usuario } from 'src/usuarios/entities/usuario.entity';
-import { Role } from 'src/usuarios/roles/roles.enum';
 import { CrearUsuarioDto } from 'src/usuarios/dtos/crear_usuario.dto';
+
+// Interfaz para definir la estructura del payload del JWT
+interface JwtPayload {
+  sub: number;
+  email: string;
+  role: string;
+}
 
 
 @Injectable()
@@ -42,7 +52,7 @@ async register(usuarioDTO : CrearUsuarioDto) {
   async validateUser(email: string, pass: string): Promise<any> {
     const user = await this.userRepo.findOne({ where: { correo: email } });
     if (user && (await bcrypt.compare(pass, user.password))) {
-      const { password, ...result } = user;
+      const { password: _, ...result } = user;
       return result;
     }
     throw new UnauthorizedException('Credenciales inválidas');
@@ -54,14 +64,14 @@ async register(usuarioDTO : CrearUsuarioDto) {
       // Este caso no debería ocurrir si el token es válido, pero es una buena práctica manejarlo.
       throw new UnauthorizedException('Usuario no encontrado');
     }
-    const { password, ...result } = user;
+    const { password: _, ...result } = user;
     return result;
   }
 
-async login(user: any) {
-  const payload = { sub: user.id, email: user.email, role: user.role };
-  return {
-    access_token: this.jwtService.sign(payload),
-  };
-}
+  async login(user: Omit<Usuario, 'password'>) {
+    const payload: JwtPayload = { sub: user.id, email: user.correo, role: user.role };
+    return {
+      access_token: await this.jwtService.sign(payload),
+    };
+  }
 }
