@@ -11,25 +11,37 @@ Given(
   'un usuario {string} con nombre {string} y contraseña {string} existe',
   async function (this: CustomWorld, role: string, username: string, pass: string) {
     try {
-      const userData = { 
-        username, 
-        password: pass, 
-        firstName: 'NombreTest',    // Correcto: el DTO espera `firstName`
-        lastName: 'ApellidoTest',   // Correcto: el DTO espera `lastName`
+      // Aseguramos enum Role de forma segura
+      const roleKey = role.toUpperCase() as keyof typeof Role;
+      const roleValue = (Role as any)[roleKey];
+      if (!roleValue) {
+        throw new Error(`Role inválido: ${role}. Revisa enum Role.`);
+      }
+
+      const userData = {
+        username,
+        password: pass,
+        firstName: 'NombreTest',
+        lastName: 'ApellidoTest',
         email: `${username}@test.com`,
-        role: Role[role.toUpperCase()],
+        role: roleValue,
         company: 'Empresa Test'
       };
-      
-      console.log('Enviando datos:', userData);
-      
+
+      console.log('DEBUG Enviando datos registro usuario:', userData);
+
       const response = await this.request
         .post('/auth/register')
         .send(userData);
-      
-      console.log(`Usuario ${username} creado con status: ${response.status}`);
-    } catch (error) {
+
+      console.log(`DEBUG registro usuario status: ${response.status} body:`, response.body);
+
+      if (![200,201].includes(response.status)) {
+        throw new Error(`Registro usuario falló: status ${response.status} body ${JSON.stringify(response.body)}`);
+      }
+    } catch (error: any) {
       console.error('Error creando usuario:', error.response?.body || error.message);
+      throw error;
     }
   },
 );
@@ -37,22 +49,45 @@ Given(
 Given(
   'que existe un producto con el siguiente cuerpo:',
   async function (this: CustomWorld, body: string) {
-    // Para crear un producto, necesitamos estar autenticados como empleado
+    // Login del empleado (asegúrate de que ese usuario exista)
     const loginRes = await this.request
       .post('/auth/login')
       .send({ email: 'cucumber_employee@test.com', password: 'password' });
+
+    console.log('DEBUG loginRes:', loginRes.status, loginRes.body);
+
+    if (!loginRes || !loginRes.body || !loginRes.body.access_token) {
+      throw new Error(`Login del empleado falló. Status: ${loginRes?.status}. Body: ${JSON.stringify(loginRes?.body)}`);
+    }
+
     const employeeToken = loginRes.body.access_token;
 
     const productData = JSON.parse(body);
-    // Aseguramos que el producto tenga todos los campos necesarios para no fallar
     const fullProductData = {
-      ...{ descripcion: 'desc', categoria: 'cat', precio: 10, cantidad: 10, cantidadMinima: 1 },
+      descripcion: 'desc',
+      categoria: 'cat',
+      precio: 10,
+      cantidad: 10,
+      cantidadMinima: 1,
       ...productData,
     };
 
-    await this.request.post('/productos').set('Authorization', `Bearer ${employeeToken}`).send(fullProductData);
+    console.log('DEBUG creando producto con:', fullProductData);
+
+    const createProductRes = await this.request
+      .post('/productos')
+      .set('Authorization', `Bearer ${employeeToken}`)
+      .send(fullProductData);
+
+    console.log('DEBUG createProductRes:', createProductRes.status, createProductRes.body);
+
+    if (![200, 201].includes(createProductRes.status)) {
+      throw new Error(`Creación de producto falló: status ${createProductRes.status} body: ${JSON.stringify(createProductRes.body)}`);
+    }
+
   },
 );
+
 
 Given(
   'estoy autenticado como el usuario {string} con contraseña {string}',
@@ -114,10 +149,19 @@ Then(
   },
 );
 
+
 Then(
   'el array de la respuesta debe tener {int} elemento\\(s)',
   function (this: CustomWorld, count: number) {
-    expect(this.response.body).to.be.an('array').with.lengthOf(count);
+    const body = this.response?.body;
+    console.log('DEBUG Then -> body:', body);
+    if (!Array.isArray(body)) {
+      throw new Error(`Se esperaba un array pero la respuesta fue: ${JSON.stringify(body)}`);
+    }
+    const actual = body.length;
+    if (actual !== count) {
+      throw new Error(`Se esperaba ${count} elementos pero la respuesta tiene ${actual}. Body: ${JSON.stringify(body)}`);
+    }
   },
 );
 

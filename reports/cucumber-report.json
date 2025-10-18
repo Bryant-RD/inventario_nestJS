@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 52149200
+              "duration": 79725300
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 394999
+              "duration": 400200
             }
           },
           {
@@ -36,11 +36,11 @@
             "line": 7,
             "name": "un usuario \"EMPLOYEE\" con nombre \"cucumber_employee\" y contraseña \"password\" existe",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:10"
+              "location": "features\\steps_definitions\\products.steps.ts:38"
             },
             "result": {
               "status": "passed",
-              "duration": 83331599
+              "duration": 82826800
             }
           },
           {
@@ -49,11 +49,11 @@
             "line": 8,
             "name": "un usuario \"CLIENT\" con nombre \"cucumber_client\" y contraseña \"password\" existe",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:10"
+              "location": "features\\steps_definitions\\products.steps.ts:38"
             },
             "result": {
               "status": "passed",
-              "duration": 58812100
+              "duration": 59934700
             }
           },
           {
@@ -62,11 +62,11 @@
             "line": 11,
             "name": "estoy autenticado como el usuario \"cucumber_employee\" con contraseña \"password\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:57"
+              "location": "features\\steps_definitions\\products.steps.ts:152"
             },
             "result": {
               "status": "passed",
-              "duration": 57415799
+              "duration": 56267899
             }
           },
           {
@@ -80,11 +80,11 @@
             "line": 12,
             "name": "envío una petición POST a \"/productos\" con el siguiente cuerpo:",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:67"
+              "location": "features\\steps_definitions\\products.steps.ts:162"
             },
             "result": {
               "status": "passed",
-              "duration": 10966799
+              "duration": 12494599
             }
           },
           {
@@ -93,11 +93,11 @@
             "line": 23,
             "name": "la respuesta debe tener el código de estado 201",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:103"
+              "location": "features\\steps_definitions\\products.steps.ts:198"
             },
             "result": {
               "status": "passed",
-              "duration": 310399
+              "duration": 213000
             }
           },
           {
@@ -106,11 +106,11 @@
             "line": 24,
             "name": "el cuerpo de la respuesta debe contener una propiedad \"nombre\" con el valor \"Producto Cucumber\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:110"
+              "location": "features\\steps_definitions\\products.steps.ts:205"
             },
             "result": {
               "status": "passed",
-              "duration": 681000
+              "duration": 536499
             }
           }
         ],
@@ -129,7 +129,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 50732700
+              "duration": 79524199
             }
           },
           {
@@ -142,7 +142,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 128600
+              "duration": 134100
             }
           },
           {
@@ -151,11 +151,11 @@
             "line": 7,
             "name": "un usuario \"EMPLOYEE\" con nombre \"cucumber_employee\" y contraseña \"password\" existe",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:10"
+              "location": "features\\steps_definitions\\products.steps.ts:38"
             },
             "result": {
               "status": "passed",
-              "duration": 57636300
+              "duration": 60172299
             }
           },
           {
@@ -164,11 +164,11 @@
             "line": 8,
             "name": "un usuario \"CLIENT\" con nombre \"cucumber_client\" y contraseña \"password\" existe",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:10"
+              "location": "features\\steps_definitions\\products.steps.ts:38"
             },
             "result": {
               "status": "passed",
-              "duration": 58081700
+              "duration": 58397899
             }
           },
           {
@@ -177,11 +177,11 @@
             "line": 27,
             "name": "estoy autenticado como el usuario \"cucumber_client\" con contraseña \"password\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:57"
+              "location": "features\\steps_definitions\\products.steps.ts:152"
             },
             "result": {
               "status": "passed",
-              "duration": 52609600
+              "duration": 52430499
             }
           },
           {
@@ -195,11 +195,11 @@
             "line": 28,
             "name": "envío una petición POST a \"/productos\" con el siguiente cuerpo:",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:67"
+              "location": "features\\steps_definitions\\products.steps.ts:162"
             },
             "result": {
               "status": "passed",
-              "duration": 3766000
+              "duration": 3955699
             }
           },
           {
@@ -208,11 +208,11 @@
             "line": 32,
             "name": "la respuesta debe tener el código de estado 403",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:103"
+              "location": "features\\steps_definitions\\products.steps.ts:198"
             },
             "result": {
               "status": "passed",
-              "duration": 63700
+              "duration": 65000
             }
           }
         ],
@@ -231,7 +231,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 46672300
+              "duration": 86428100
             }
           },
           {
@@ -244,7 +244,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 67500
+              "duration": 70699
             }
           },
           {
@@ -253,11 +253,11 @@
             "line": 7,
             "name": "un usuario \"EMPLOYEE\" con nombre \"cucumber_employee\" y contraseña \"password\" existe",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:10"
+              "location": "features\\steps_definitions\\products.steps.ts:38"
             },
             "result": {
               "status": "passed",
-              "duration": 60751100
+              "duration": 58183900
             }
           },
           {
@@ -266,11 +266,11 @@
             "line": 8,
             "name": "un usuario \"CLIENT\" con nombre \"cucumber_client\" y contraseña \"password\" existe",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:10"
+              "location": "features\\steps_definitions\\products.steps.ts:38"
             },
             "result": {
               "status": "passed",
-              "duration": 57395099
+              "duration": 58278899
             }
           },
           {
@@ -284,11 +284,11 @@
             "line": 35,
             "name": "que existe un producto con el siguiente cuerpo:",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:37"
+              "location": "features\\steps_definitions\\products.steps.ts:105"
             },
             "result": {
               "status": "passed",
-              "duration": 62318700
+              "duration": 62826100
             }
           },
           {
@@ -297,11 +297,11 @@
             "line": 39,
             "name": "estoy autenticado como el usuario \"cucumber_client\" con contraseña \"password\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:57"
+              "location": "features\\steps_definitions\\products.steps.ts:152"
             },
             "result": {
               "status": "passed",
-              "duration": 52156399
+              "duration": 51784599
             }
           },
           {
@@ -310,11 +310,11 @@
             "line": 40,
             "name": "envío una petición GET a \"/productos\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:77"
+              "location": "features\\steps_definitions\\products.steps.ts:172"
             },
             "result": {
               "status": "passed",
-              "duration": 4966699
+              "duration": 5521200
             }
           },
           {
@@ -323,11 +323,11 @@
             "line": 41,
             "name": "la respuesta debe tener el código de estado 200",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:103"
+              "location": "features\\steps_definitions\\products.steps.ts:198"
             },
             "result": {
               "status": "passed",
-              "duration": 60399
+              "duration": 71299
             }
           },
           {
@@ -336,11 +336,11 @@
             "line": 42,
             "name": "el cuerpo de la respuesta debe ser un array",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:124"
+              "location": "features\\steps_definitions\\products.steps.ts:235"
             },
             "result": {
               "status": "passed",
-              "duration": 274099
+              "duration": 351999
             }
           },
           {
@@ -349,11 +349,11 @@
             "line": 43,
             "name": "el array de la respuesta debe tener 1 elemento(s)",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:117"
+              "location": "features\\steps_definitions\\products.steps.ts:220"
             },
             "result": {
               "status": "passed",
-              "duration": 348599
+              "duration": 421800
             }
           },
           {
@@ -362,11 +362,11 @@
             "line": 44,
             "name": "el primer elemento del array de la respuesta debe tener la propiedad \"nombre\" con el valor \"Mouse Inalámbrico\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:131"
+              "location": "features\\steps_definitions\\products.steps.ts:242"
             },
             "result": {
               "status": "passed",
-              "duration": 342400
+              "duration": 355199
             }
           }
         ],
@@ -396,7 +396,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 46284400
+              "duration": 88510599
             }
           },
           {
@@ -409,7 +409,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 63400
+              "duration": 69100
             }
           },
           {
@@ -418,11 +418,11 @@
             "line": 8,
             "name": "un usuario \"ADMIN\" con nombre \"adminstock\" y contraseña \"password123\" existe",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:10"
+              "location": "features\\steps_definitions\\products.steps.ts:38"
             },
             "result": {
               "status": "passed",
-              "duration": 57045900
+              "duration": 58377999
             }
           },
           {
@@ -431,11 +431,11 @@
             "line": 9,
             "name": "estoy autenticado como el usuario \"adminstock\" con contraseña \"password123\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:57"
+              "location": "features\\steps_definitions\\products.steps.ts:152"
             },
             "result": {
               "status": "passed",
-              "duration": 54368300
+              "duration": 51776499
             }
           },
           {
@@ -449,11 +449,11 @@
             "line": 12,
             "name": "envío una petición \"POST\" a \"/productos\" con el siguiente cuerpo:",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:86"
+              "location": "features\\steps_definitions\\products.steps.ts:181"
             },
             "result": {
               "status": "passed",
-              "duration": 12371000
+              "duration": 10037400
             }
           },
           {
@@ -462,11 +462,11 @@
             "line": 24,
             "name": "la respuesta debe tener el código de estado 201",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:103"
+              "location": "features\\steps_definitions\\products.steps.ts:198"
             },
             "result": {
               "status": "passed",
-              "duration": 74200
+              "duration": 54399
             }
           },
           {
@@ -480,11 +480,11 @@
             "line": 25,
             "name": "envío una petición \"POST\" a \"/productos\" con el siguiente cuerpo:",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:86"
+              "location": "features\\steps_definitions\\products.steps.ts:181"
             },
             "result": {
               "status": "passed",
-              "duration": 8483400
+              "duration": 9202499
             }
           },
           {
@@ -493,11 +493,11 @@
             "line": 37,
             "name": "la respuesta debe tener el código de estado 201",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:103"
+              "location": "features\\steps_definitions\\products.steps.ts:198"
             },
             "result": {
               "status": "passed",
-              "duration": 151300
+              "duration": 68200
             }
           },
           {
@@ -506,11 +506,11 @@
             "line": 39,
             "name": "envío una petición \"GET\" a \"/productos/stock/alerts\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:95"
+              "location": "features\\steps_definitions\\products.steps.ts:190"
             },
             "result": {
               "status": "passed",
-              "duration": 3392899
+              "duration": 4845099
             }
           },
           {
@@ -519,11 +519,11 @@
             "line": 41,
             "name": "la respuesta debe tener el código de estado 200",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:103"
+              "location": "features\\steps_definitions\\products.steps.ts:198"
             },
             "result": {
               "status": "passed",
-              "duration": 75300
+              "duration": 60400
             }
           },
           {
@@ -532,11 +532,11 @@
             "line": 42,
             "name": "el cuerpo de la respuesta debe ser un array",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:124"
+              "location": "features\\steps_definitions\\products.steps.ts:235"
             },
             "result": {
               "status": "passed",
-              "duration": 46299
+              "duration": 43899
             }
           },
           {
@@ -545,12 +545,11 @@
             "line": 43,
             "name": "el array de la respuesta debe tener 1 elemento(s)",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:117"
+              "location": "features\\steps_definitions\\products.steps.ts:220"
             },
             "result": {
-              "status": "failed",
-              "duration": 446399,
-              "error_message": "AssertionError\n    + expected - actual\n\n    -0\n    +1\n\n    at CustomWorld.<anonymous> (C:\\Users\\Bryant-RD\\Desktop\\proyectos_universidad\\gestion_inventario\\backend\\features\\steps_definitions\\products.steps.ts:120:55)"
+              "status": "passed",
+              "duration": 426000
             }
           },
           {
@@ -559,11 +558,11 @@
             "line": 44,
             "name": "el primer elemento del array de la respuesta debe tener la propiedad \"nombre\" con el valor \"Mouse Inalámbrico\"",
             "match": {
-              "location": "features\\steps_definitions\\products.steps.ts:131"
+              "location": "features\\steps_definitions\\products.steps.ts:242"
             },
             "result": {
-              "status": "skipped",
-              "duration": 0
+              "status": "passed",
+              "duration": 203699
             }
           }
         ],

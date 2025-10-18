@@ -55,8 +55,10 @@ export class ProductosService {
   }
 
   async findStockAlerts(): Promise<any> {
-    // Lógica que usa this.productRepo...
-    return [];
+  return await this.productRepo
+    .createQueryBuilder('producto')
+    .where('producto.cantidad <= producto.cantidadMinima')
+    .getMany();
   }
 
   async findHistoryByProductId(id: number): Promise<any> {
