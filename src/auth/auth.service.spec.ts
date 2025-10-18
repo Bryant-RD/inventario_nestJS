@@ -141,7 +141,7 @@ describe('AuthService', () => {
 
       const result = await service.login(user);
 
-      expect(mockJwtService.sign).toHaveBeenCalledWith({ sub: user.userId, email: user.email, role: user.role });
+      expect(mockJwtService.sign).toHaveBeenCalledWith({ userId: user.userId, email: user.email, role: user.role });
       expect(result).toEqual({ access_token: token });
     });
   });
