@@ -11,7 +11,7 @@ import { Usuario } from 'src/usuarios/entities/usuario.entity';
 import { CrearUsuarioDto } from 'src/usuarios/dtos/crear_usuario.dto';
 
 // Interfaz para definir la estructura del payload del JWT
-interface JwtPayload {
+export interface JwtPayload {
   userId: number;
   email: string;
   role: string;

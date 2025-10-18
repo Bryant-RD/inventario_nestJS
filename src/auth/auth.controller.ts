@@ -5,6 +5,7 @@ import { Request } from 'express';
 import { CrearUsuarioDto } from 'src/usuarios/dtos/crear_usuario.dto';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { Usuario } from 'src/usuarios/entities/usuario.entity';
+import { JwtPayload } from './auth.service';
 
 @Controller('auth')
 export class AuthController {
@@ -17,9 +18,9 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('login')
-  login(@Req() req: Request) {
-    console.log (this.authService.login(req.user));
-    return this.authService.login(req.user);
+  async login(@Req() req: Request) {
+    // req.user es poblado por LocalAuthGuard con el usuario validado
+    return this.authService.login(req.user as JwtPayload);
   }
 
   @UseGuards(JwtAuthGuard)
