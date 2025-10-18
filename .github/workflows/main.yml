@@ -84,7 +84,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: tu-usuario-docker/inventario-nestjs:latest # <-- ¡Cambia esto!
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/inventario-nestjs:latest
 
       - name: Deploy to production environment
