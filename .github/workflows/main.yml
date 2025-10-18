@@ -90,19 +90,19 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
+            # Navega al directorio del proyecto en el servidor
             cd inventario_backend
 
-            # Variables de entorno
+            # Crea o actualiza el archivo de variables de entorno de producción
             echo "${{ secrets.PROD_ENV_FILE }}" > .env.prod
 
-            # Login a Docker Hub
-            echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-
-            # Descargar la última imagen
+            # Descarga la última imagen de la aplicación desde Docker Hub
             docker-compose pull
 
-            # Migraciones
+            # Ejecuta las migraciones de la base de datos en un contenedor temporal
+            # Asume que tienes un script "typeorm:run-migrations" en tu package.json
             docker-compose run --rm app npm run typeorm:run-migrations
 
-            # Levantar contenedores
+            # Reinicia la aplicación con la nueva imagen
+            # El flag -d asegura que corra en segundo plano
             docker-compose up -d
