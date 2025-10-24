@@ -13,21 +13,24 @@ export class AuthController {
 
   @Post('register')
   register(@Body() crearUsuarioDto: CrearUsuarioDto) {
+      console.error('DTO recibido:', crearUsuarioDto);
     return this.authService.register(crearUsuarioDto);
   }
 
   @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(@Req() req: Request) {
-    // req.user es poblado por LocalAuthGuard con el usuario validado
-    return this.authService.login(req.user as JwtPayload);
+    // req.user es poblado por LocalAuthGuard con el usuario validado (sin password)
+    const loggedInUser = req.user as Omit<Usuario, 'password'>;
+    const result = await this.authService.login(loggedInUser);
+    return result;
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('profile')
   async getProfile(@Req() req: Request) {
     // req.user es poblado por JwtStrategy con el payload del token
-    const userProfile = await this.authService.getProfile((req.user as Usuario).id);
+    const userProfile = await this.authService.getProfile((req.user as JwtPayload).id);
     return { success: true, data: userProfile };
   }
 }

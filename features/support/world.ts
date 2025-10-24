@@ -6,6 +6,7 @@ import {
   setWorldConstructor,
   World,
 } from '@cucumber/cucumber';
+import { Usuario } from '../../src/usuarios/entities/usuario.entity';
 import { DataSource } from 'typeorm';
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';

@@ -131,18 +131,25 @@ describe('AuthService', () => {
     });
   });
 
-  interface JwtPayload { userId: number; email: string; role: string; }
-  
   describe('login', () => {
-    it('should return an access token', async () => {
-      const user :  JwtPayload = { userId: 1, email: 'test@example.com', role: Role.EMPLOYEE };
+    it('should return an access token and user object', async () => {
+      // Mock user object as returned by validateUser (without password)
+      const user: Omit<Usuario, 'password'> = {
+        id: 1,
+        username: 'test',
+        correo: 'test@example.com',
+        role: Role.EMPLOYEE,
+        nombre: 'Test',
+        apellido: 'User',
+        fechaCreacion: new Date(),
+      };
       const token = 'jwt-token';
       mockJwtService.sign.mockReturnValue(token);
 
       const result = await service.login(user);
 
-      expect(mockJwtService.sign).toHaveBeenCalledWith({ userId: user.userId, email: user.email, role: user.role });
-      expect(result).toEqual({ access_token: token });
+      expect(mockJwtService.sign).toHaveBeenCalledWith({ id: user.id, email: user.correo, role: user.role });
+      expect(result).toEqual({ access_token: token, user: user });
     });
   });
 });

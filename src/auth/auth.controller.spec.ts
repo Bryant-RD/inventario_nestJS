@@ -55,19 +55,18 @@ describe('AuthController', () => {
 
   describe('login', () => {
     it('should call AuthService.login and return the access token', async () => {
-      const user : Usuario = {
-        id: 1, username: 'test', role: Role.EMPLOYEE, password: 'pass', // El password no se usa aquí, pero es parte de la entidad
+      const user : Omit<Usuario, 'password'> = {
+        id: 1, username: 'test', role: Role.EMPLOYEE, // El password no se usa aquí, pero es parte de la entidad
         nombre: '',
         apellido: '',
         correo: 'test@example.com',
         fechaCreacion: new Date(),
-       
       };
       const req: any = { user };
-      const token = { access_token: 'jwt-token' };
-      mockAuthService.login.mockResolvedValue(token);
+      const tokenAndUser = { access_token: 'jwt-token', user: user };
+      mockAuthService.login.mockResolvedValue(tokenAndUser);
 
-      expect(await controller.login(req)).toEqual(token);
+      expect(await controller.login(req)).toEqual(tokenAndUser);
       expect(mockAuthService.login).toHaveBeenCalledWith(user);
     });
   });

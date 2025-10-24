@@ -12,7 +12,7 @@ import { CrearUsuarioDto } from 'src/usuarios/dtos/crear_usuario.dto';
 
 // Interfaz para definir la estructura del payload del JWT
 export interface JwtPayload {
-  userId: number;
+  id: number; // Cambiado de userId a id para consistencia con la entidad Usuario
   email: string;
   role: string;
 }
@@ -26,6 +26,9 @@ export class AuthService {
   ) {}
 
 async register(usuarioDTO : CrearUsuarioDto) {
+  console.log('DTO recibido:', usuarioDTO);
+
+
   const existing = await this.userRepo.findOne({
     where: [
       { username: usuarioDTO.username },
@@ -49,7 +52,7 @@ async register(usuarioDTO : CrearUsuarioDto) {
   return this.userRepo.save(user);
 }
 
-  async validateUser(email: string, pass: string): Promise<any> {
+  async validateUser(email: string, pass: string): Promise<Omit<Usuario, 'password'>> {
     const user = await this.userRepo.findOne({ where: { correo: email } });
     if (user && (await bcrypt.compare(pass, user.password))) {
       const { password: _, ...result } = user;
@@ -68,10 +71,12 @@ async register(usuarioDTO : CrearUsuarioDto) {
     return result;
   }
 
-  async login(user: JwtPayload) {
-    const payload: JwtPayload = { userId: user.userId, email: user.email, role: user.role };
+  async login(user: Omit<Usuario, 'password'>) {
+    const payload: JwtPayload = { id: user.id, email: user.correo, role: user.role };
+    const access_token = await this.jwtService.sign(payload);
     return {
-      access_token: await this.jwtService.sign(payload),
+      access_token,
+      user, // Devolvemos el objeto de usuario sin la contraseña
     };
   }
 }
